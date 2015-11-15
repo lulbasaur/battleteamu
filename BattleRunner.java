@@ -1,58 +1,66 @@
 import java.util.*;
 import java.*;
 import java.io.*;
+
 class BattleRunner{
 
-    Ship s1;
-    String standardLine = " . . . . . . . . .";
+    String standardLine = " . . . . . . . . . .";
     
     
     BattleRunner(Ship s1){
-	PrintGrid(s1);
-	
-    
+	int x_Vector[] = s1.returnVectorX();
+	int y_Vector[] = s1.returnVectorY();
+	int lines = 10;
+	PrintGrid(x_Vector,y_Vector,lines);
     }
 
 
 
 
-    private void PrintGrid(Ship s1){
-	int xV[] = s1.returnVectorX();
-	int yV[] = s1.returnVectorY();
-
-
+    private void PrintGrid(int[] x_Vector, int[] y_Vector,int lines){
+	int y_length = y_Vector.length;
 	
-	int x = xV[0];
-	int y = yV[0];
-	System.out.println(y);
-	System.out.println(x);
-	int lp = 0;
-	int length = s1.returnLength();
-	int N = 10;
-	System.out.println(" 0 1 2 3 4 5 6 7 8 9");
+	System.out.println(Arrays.toString(x_Vector));
+
+	System.out.println(Arrays.toString(y_Vector));
+
+	System.out.println("   0 1 2 3 4 5 6 7 8 9");
+
+	int step = 0;
 	
-	    for (int i = 0; i < N; i++) {
-		if (x == i) {
-		    System.out.println(returnLine(y,x,N));
-		}
-		else{
-		    System.out.println(i + " " + standardLine);
-		}
+	for (int i = 0; i < lines; i++) {
+	    if(step < y_length  && y_Vector[step] == i){
+		System.out.println(returnLine(x_Vector,y_Vector[step],lines));
+		step++;
 	    }
-
-	
-    }
-
-
-    String returnLine(int index, int linenr, int N){
-	String line = "" + linenr + " ";
-	for (int i = 1; i < N; i++) {
-	    if (index == i) {
-		line = line + " *"; 
+	    else{
+		System.out.println(i + " " + standardLine);
 	    }
-	    else line = line + " .";
 	}
-	line =  line;
+    }
+
+    // [3 4 5]
+    //  0 1 2
+    String returnLine(int xArray[], int yAxisNr, int N){
+	String line = yAxisNr + " ";
+	
+	int i = 0;
+	int step = 0;
+
+	while(i < N){
+	    if (step < xArray.length && xArray[step] == i)
+		{
+		    
+		    line = line + " *";
+		    step++;
+		    i++;
+		}
+	    else{
+		line = line + " .";
+		i++;
+	    }
+	}
+	
 	return line;
     }
 
