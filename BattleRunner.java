@@ -6,16 +6,12 @@ class BattleRunner{
 
     String standardLine = " . . . . . . . . . .";
     
-    
     BattleRunner(Ship s1){
 	int x_Vector[] = s1.returnVectorX();
 	int y_Vector[] = s1.returnVectorY();
 	int lines = 10;
 	PrintGrid(x_Vector,y_Vector,lines);
     }
-
-
-
 
     private void PrintGrid(int[] x_Vector, int[] y_Vector,int lines){
 	int y_length = y_Vector.length;
@@ -49,9 +45,8 @@ class BattleRunner{
 
 	while(i < N){
 	    if (step < xArray.length && xArray[step] == i)
-		{
-		    
-		    line = line + " *";
+		{ 
+		    line = line + " x";
 		    step++;
 		    i++;
 		}
@@ -59,11 +54,7 @@ class BattleRunner{
 		line = line + " .";
 		i++;
 	    }
-	}
-	
+	}	
 	return line;
-    }
-
-    
-    
+    }    
 }

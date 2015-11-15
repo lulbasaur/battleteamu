@@ -18,14 +18,14 @@ class Ship{
 	this.length = length;
 	int tempX = start.getX();
 	int tempY = start.getY();
-	if (direction == 0) {
+	if (direction == 0) {§
 	    //down
 	    for (int i = 1; i < length; i++) {
 		this.cordVector[i] = new Cord(tempX,1 + tempY++);
 	    }
 	}
 
-	if (direction == 1) {
+	if (direction >= 1) {
 	    //right
 	    for (int i = 1; i < length; i++) {
 		this.cordVector[i] = new Cord(1 + tempX++,tempY);

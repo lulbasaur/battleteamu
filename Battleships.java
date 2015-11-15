@@ -35,7 +35,6 @@ class Battleships{
 	System.out.print("Place Down or Right?: ");
 	int dir = in.nextInt();
 
-
 	Cord cord = new Cord(xCord,yCord);
 	Ship ship =  new Ship(cord,length,dir);
 
