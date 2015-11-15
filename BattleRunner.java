@@ -47,7 +47,7 @@ class BattleRunner{
 	int i = 0;
 	int step = 0;
 
-	while(i < N-1){
+	while(i < N){
 	    if (step < xArray.length && xArray[step] == i)
 		{
 		    
