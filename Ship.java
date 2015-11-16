@@ -2,6 +2,7 @@ class Ship{
 
     int start;
     int length;
+    int direction;
     String dir;
 
     Cord cordVector[];
@@ -16,9 +17,10 @@ class Ship{
 	this.cordVector = new Cord[length];
 	this.cordVector[0] = start;
 	this.length = length;
+	this.direction = direction;
 	int tempX = start.getX();
 	int tempY = start.getY();
-	if (direction == 0) {§
+	if (direction == 0) {
 	    //down
 	    for (int i = 1; i < length; i++) {
 		this.cordVector[i] = new Cord(tempX,1 + tempY++);
@@ -50,9 +52,24 @@ class Ship{
 	return vX;
     }
     
-    int returnLength(){ return length;}
+    int returnLength(){ return length; }
 
-
-   
+    boolean isWithinGrid(){
+	if (direction == 1) {
+	    int x_Vector[] = this.returnVectorX();
+	    if (x_Vector[length - 1] <= 9){
+		return true;
+	    }
+	    else return false;
+	}
+	if (direction == 0) {
+	    int y_Vector[] = this.returnVectorY();
+	    if (y_Vector[length - 1] <= 9){
+		return true;
+	    }
+	    else return false;
+	}
+	else return false;
+    }
     
 }
