@@ -6,7 +6,7 @@ class Battleships{
 
     public static void main(String[] args) {
 	System.out.println("Welcome to Battleships!");
-	System.out.println("   0 1 2 3 4 5 6 7 8 9");
+	System.out.println("   A B C D E F G H I J");
 	System.out.println("0  . . . . . . . . . .");
 	System.out.println("1  . . . . . . . . . .");
 	System.out.println("2  . . . . . . . . . .");
@@ -36,11 +36,11 @@ class Battleships{
 		dir = in.nextInt();
 	    }
 	
-	    System.out.print("Enter X coordinate [0-9]: ");
-	    int xCord = in.nextInt();
+	    System.out.print("Enter X coordinate [A-J]: ");
+	    int xCord = charToInt(in.next().trim().charAt(0));
 	    while (xCord < 0 || xCord > 9) {
-		System.out.print("\nYou must enter a valid coordinate!\nEnter X coordinate: ");
-		xCord = in.nextInt();
+		System.out.print("\nYou must enter a valid coordinate!\nEnter X coordinate [A-J]: ");
+		xCord = charToInt(in.next().trim().charAt(0));
 	    }
 	
 	    System.out.print("Enter Y coordinate [0-9]: ");
@@ -56,11 +56,26 @@ class Battleships{
 	    if (ship.isWithinGrid() == true){
 		BattleRunner runner = new BattleRunner(ship);
 		lock = 0;
+	
+
 	    }
 	    else {
 		System.out.print("\nYour battleship must be within the grid!\n");
 	    }
-	}
-	
+	}	
     }
+
+
+
+
+    static public int charToInt(char c){
+	char ch = Character.toUpperCase(c);
+	int i = (int)ch;
+	if(i-65 > -1 && i-65 < 10){
+	    return i-65;
+	}
+	else{ return -1; }
+    }
+    
+    
 }

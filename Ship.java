@@ -57,7 +57,7 @@ class Ship{
     boolean isWithinGrid(){
 	if (direction == 1) {
 	    int x_Vector[] = this.returnVectorX();
-	    if (x_Vector[length - 1] <= 9){
+	    if (x_Vector[this.length - 1] <= 9){
 		return true;
 	    }
 	    else return false;
