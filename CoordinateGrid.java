@@ -9,7 +9,7 @@ class CoordinateGrid{
 	this.dimensions = d;
 	
 	for (int i = 0; i < d; i++) {
-	    for (int j = 0; i < d; i++) {
+	    for (int j = 0; j < d; j++) {
 		Coordinate cord = new Coordinate(i,j);
 		coordGrid.put(i + 10*j,cord);
 	    }
