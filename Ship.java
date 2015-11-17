@@ -6,11 +6,12 @@ class Ship{
     String dir;
 
     Cord cordVector[];
+    int hitVektor[];
 
     //  0 1 2
     //0 + +     
     //1     
-    //2     
+    //2
     Ship(Cord start, int length, int direction){
 
 	this.dir = dir;
@@ -71,5 +72,9 @@ class Ship{
 	}
 	else return false;
     }
+
+
+
+
     
 }
