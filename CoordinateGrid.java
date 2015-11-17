@@ -8,10 +8,10 @@ class CoordinateGrid{
     CoordinateGrid(int d){
 	this.dimensions = d;
 	
-	for (int i = 0; i < d; i++) {
-	    for (int j = 0; j < d; j++) {
-		Coordinate cord = new Coordinate(i,j);
-		coordGrid.put(i + 10*j,cord);
+	for (int y = 0; y < d; y++) {
+	    for (int x = 0; x < d; x++) {
+		Coordinate cord = new Coordinate(x,y);
+		coordGrid.put(x + 10*y,cord);
 	    }
 	}
     }

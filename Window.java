@@ -61,7 +61,7 @@ public class Window  extends JFrame{
     int x2 = CANVAS_WIDTH;
     int y2 = CANVAS_HEIGHT;
     // fill RoundRectangle2D.Double
-    GradientPaint redtowhite = new GradientPaint(x1, y1, Color.lightblue, y2/8, x2/8, Color.blue,true);
+    GradientPaint redtowhite = new GradientPaint(x1, y1, Color.BLUE, y2/8, x2/8, Color.blue,true);
     g2.setPaint(redtowhite);
     g2.fill(new RoundRectangle2D.Double(x1, y1, x2, y2, 0, 200));
     g2.setPaint(Color.black);
