@@ -29,7 +29,7 @@ class Coordinate{
 	}
 
 	else if(this.hit){
-	    return " ! ";
+	    return " * ";
 	}
 	else{
 	    return " . ";
