@@ -16,6 +16,16 @@ class CoordinateGrid{
 	}
     }
 
-
-    
+    public void printGrid(){
+	int N = 99;
+	int i = 0;
+	
+	while(i < N) {
+	    String line = "";	
+	    for (int j = 0; j < 10; j++) {
+		line = line + coordGrid.get(i++).returnSymbol();
+	    }
+	    System.out.println(line);	    
+	}
+    }   
 }

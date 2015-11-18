@@ -14,10 +14,26 @@ class Coordinate{
     public int getX(){ return x; }
     public int getY(){ return y; }
 
+    public void occupy(){  this.occupied = true; }   
+    public void unOccupy(){  this.occupied = false; }   
 
     public boolean isOccupied(){ return occupied; }
     
     public boolean getHit(){ return hit; }    
     public void hit(){  this.hit = true; }   
-    
+
+    public String returnSymbol(){
+
+	if(this.occupied){
+	    return " # ";
+	}
+
+	else if(this.hit){
+	    return " ! ";
+	}
+	else{
+	    return " . ";
+	}
+	
+    }
 }
