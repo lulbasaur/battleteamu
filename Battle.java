@@ -13,12 +13,26 @@ class Battle{
 	for (int i = 5; i < 10; i++) {
 	    CD.alterGrid(HIT,i,5);
 	}
+
+	clearScreen();
+	CD.printGrid();
+
+	try {
+	    Thread.sleep(2000);                 //1000 milliseconds is one second.
+	} catch(InterruptedException ex) {
+	    Thread.currentThread().interrupt();
+	}
+	
 	for (int i = 5; i < 10; i++) {
 	    CD.alterGrid(HIT,2,i);
 	}
-	
+	clearScreen();
 	CD.printGrid();
-
+	
     }
+    public static void clearScreen() {  
+	System.out.print("\033[H\033[2J");  
+	System.out.flush();  
+    }  
 	
 }
