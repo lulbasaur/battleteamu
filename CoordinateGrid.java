@@ -9,7 +9,6 @@ class CoordinateGrid{
     private static final int UNOCC = 2;
 
 
-
     CoordinateGrid(int d){
 	this.dimensions = d;
 	
