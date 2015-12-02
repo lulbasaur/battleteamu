@@ -7,8 +7,11 @@ class Battle{
     private static final int UNOCC = 2;
     
     public static void main(String[] args) {
+
+	Window frame = new Window();
+	frame.setVisible(true);
 	
-	CoordinateGrid CD = new CoordinateGrid(9);
+	CoordinateGrid CD = new CoordinateGrid(20);
 
 	for (int i = 5; i < 10; i++) {
 	    CD.alterGrid(HIT,i,5);
