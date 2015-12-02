@@ -8,7 +8,7 @@ class Battle{
     
     public static void main(String[] args) {
 	
-	CoordinateGrid CD = new CoordinateGrid(20);
+	CoordinateGrid CD = new CoordinateGrid(9);
 
 	for (int i = 5; i < 10; i++) {
 	    CD.alterGrid(HIT,i,5);

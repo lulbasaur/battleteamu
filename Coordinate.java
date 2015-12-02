@@ -14,13 +14,13 @@ class Coordinate{
     public int getX(){ return x; }
     public int getY(){ return y; }
 
-    public void occupy(){  this.occupied = true; }   
-    public void unOccupy(){  this.occupied = false; }   
+    public void occupy(){ this.occupied = true; }   
+    public void unOccupy(){ this.occupied = false; }   
 
     public boolean isOccupied(){ return occupied; }
     
     public boolean getHit(){ return hit; }    
-    public void hit(){  this.hit = true; }   
+    public void hit(){ this.hit = true; }   
 
     public String returnSymbol(){
 
@@ -29,7 +29,7 @@ class Coordinate{
 	}
 
 	else if(this.hit){
-	    return " * ";
+	    return " o ";
 	}
 	else{
 	    return " . ";
