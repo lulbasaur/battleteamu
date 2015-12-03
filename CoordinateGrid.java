@@ -39,7 +39,7 @@ class CoordinateGrid{
     }
 
     public void alterGrid(int choice, int x, int y){
-	int key = x + dimensions * y;	
+	int key = x + dimensions * y;
 	switch (choice)
 	    {
 	    case HIT:  coordGrid.get(key).hit();
@@ -64,7 +64,7 @@ class CoordinateGrid{
 	    return axis;
 	}
 	else{
-	    return "error generating charAxis";
+	    return "Error generating charAxis";
 	}
     }
 

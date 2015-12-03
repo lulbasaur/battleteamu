@@ -7,6 +7,9 @@ class Battle{
     private static final int UNOCC = 2;
     
     public static void main(String[] args) {
+
+	Window frame = new Window();
+	frame.setVisible(true);
 	
 	CoordinateGrid CD = new CoordinateGrid(20);
 
