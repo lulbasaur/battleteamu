@@ -10,8 +10,9 @@ class Battle{
 	
 	CoordinateGrid CD = new CoordinateGrid(20);
 
-	for (int i = 5; i < 10; i++) {
-	    CD.alterGrid(HIT,i,5);
+	
+	for (int i = 0; i < 20; i++) {
+	    CD.alterGrid(OCC,i,0);
 	}
 
 	clearScreen();
@@ -23,9 +24,39 @@ class Battle{
 	    Thread.currentThread().interrupt();
 	}
 	
-	for (int i = 5; i < 10; i++) {
-	    CD.alterGrid(HIT,2,i);
+	for (int i = 0; i < 20; i++) {
+	    CD.alterGrid(OCC,i,1);
 	}
+	
+	
+	clearScreen();
+	CD.printGrid();
+
+	try {
+	    Thread.sleep(2000);                 //1000 milliseconds is one second.
+	} catch(InterruptedException ex) {
+	    Thread.currentThread().interrupt();
+	}
+	
+	for (int i = 0; i < 20; i++) {
+	    CD.alterGrid(OCC,i,2);
+	}
+	
+	
+	clearScreen();
+	CD.printGrid();
+
+	try {
+	    Thread.sleep(2000);                 //1000 milliseconds is one second.
+	} catch(InterruptedException ex) {
+	    Thread.currentThread().interrupt();
+	}
+	
+	for (int i = 0; i < 20; i++) {
+	    CD.alterGrid(OCC,i,3);
+	}
+	
+	
 	clearScreen();
 	CD.printGrid();
 	
