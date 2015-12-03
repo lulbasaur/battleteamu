@@ -19,27 +19,13 @@ import javax.imageio.ImageIO;
 public class Window extends JFrame {
   Window() {
     add(new ContentPanel());
-    setSize(640, 480);
+    setSize(640, 640);
   }
 
   public static void main(String[] args) {
     Window jrframe = new Window();
-
+    
     JPanel newPanel = new JPanel(new GridBagLayout());
-
-    GridBagConstraints constraints = new GridBagConstraints();
-    constraints.anchor = GridBagConstraints.WEST;
-    constraints.insets = new Insets(10, 10, 10, 10);
-    constraints.gridx = 0;
-    constraints.gridy = 0;
-    
-
-    ImageIcon image = new ImageIcon("test.png");
-    JLabel label = new JLabel("", image, JLabel.CENTER);
-    JPanel panel = new JPanel(new BorderLayout());
-    jrframe.add( label, BorderLayout.CENTER );
-    
-    jrframe.setVisible(true);
   }
 
 }

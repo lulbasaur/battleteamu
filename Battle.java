@@ -22,7 +22,7 @@ class Battle{
 	CD.printGrid();
 
 	try {
-	    Thread.sleep(2000);                 //1000 milliseconds is one second.
+	    Thread.sleep(2000); //1000 ms is one second.
 	} catch(InterruptedException ex) {
 	    Thread.currentThread().interrupt();
 	}
