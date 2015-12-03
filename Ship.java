@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 class Ship extends JPanel {
-    JPanel newPanel = new JPanel();
-    JLabel label = new JLabel("test");
+    //JPanel newPanel = new JPanel();
+    //JLabel label = new JLabel("test");
     
 }
