@@ -20,6 +20,7 @@ class CoordinateGrid{
 	}
     }
 
+    
     public void printGrid(){
 	int N = (dimensions * dimensions) - 1;
 	int i = 0;
@@ -66,6 +67,7 @@ class CoordinateGrid{
 	    return "Error generating charAxis";
 	}
     }
+
 
     
 }

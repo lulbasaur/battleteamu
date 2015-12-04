@@ -21,11 +21,14 @@ class Battle{
 	
 	GUI w = new GUI();
 	w.setLayout(null);
-	w.placeShip1(frame, 19, 15);
-	w.placeShip2(frame, 14, 14);
 	w.drawBackground(frame);
-	w.placeShip1(frame, 18, 15);
+ 
+	Ship ship1 = new Ship(w, frame, 1);
+        Ship ship2 = new Ship(w, frame, 2);
 
+	ship1.move(w, frame, 3, 3);
+	ship2.move(w, frame, 6, 6);
+	
 	/*
 	CoordinateGrid CD = new CoordinateGrid(20);
 
