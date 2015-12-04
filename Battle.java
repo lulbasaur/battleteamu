@@ -1,5 +1,13 @@
 import java.util.*;
 
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 class Battle{
 
     private static final int HIT = 0;
@@ -8,9 +16,17 @@ class Battle{
     
     public static void main(String[] args) {
 
-	Window frame = new Window();
-	frame.setVisible(true);
+	JFrame frame = new JFrame();
+        frame.setPreferredSize(new Dimension(600,600));
 	
+	GUI w = new GUI();
+	w.setLayout(null);
+	w.placeShip1(frame, 19, 15);
+	w.placeShip2(frame, 14, 14);
+	w.drawBackground(frame);
+	w.placeShip1(frame, 18, 15);
+
+	/*
 	CoordinateGrid CD = new CoordinateGrid(20);
 
 	for (int i = 5; i < 10; i++) {
@@ -31,6 +47,7 @@ class Battle{
 	}
 	clearScreen();
 	CD.printGrid();
+	*/
 	
     }
     public static void clearScreen() {  
