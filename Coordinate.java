@@ -1,4 +1,4 @@
-class Coordinate{
+class Coordinate implements Serializable{
     private int x;
     private int y;
 
