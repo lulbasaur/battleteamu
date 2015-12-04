@@ -33,8 +33,23 @@ public class Player extends Thread{
 	
 	while(true){
 	    try{
-		String pname = (String) input.readObject();	
-		System.out.println("Respons by player "+ playerNr +": " + pname);
+		Object pname = (Object) input.readObject();
+		if( pname instanceof String) {
+		    System.out.println("Respons by player "+ playerNr +": " + pname);
+		}
+		if(pname instanceof Integer) {
+		    int choice = (int)pname; 
+		    switch(choice){
+		    case 0:
+			System.out.println("Respons by player "+ playerNr +": " + pname);
+		    case 1:
+			System.out.println("Respons by player "+ playerNr +": " + pname);
+		    case 2:
+			System.out.println("Respons by player "+ playerNr +": " + pname);
+		    default:
+		    break;
+		    }
+		}
 	    }
 	    catch( EOFException e ) {
 		return;
