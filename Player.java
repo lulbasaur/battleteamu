@@ -41,11 +41,11 @@ public class Player extends Thread{
 		    int choice = (int)pname; 
 		    switch(choice){
 		    case 0:
-			System.out.println("Respons by player "+ playerNr +": " + pname);
+			System.out.println("Respons by player "+ playerNr +": " + pname + " RIGHT");
 		    case 1:
-			System.out.println("Respons by player "+ playerNr +": " + pname);
+			System.out.println("Respons by player "+ playerNr +": " + pname + " LEFT");
 		    case 2:
-			System.out.println("Respons by player "+ playerNr +": " + pname);
+			System.out.println("Respons by player "+ playerNr +": " + pname + " FIRE");
 		    default:
 		    break;
 		    }
