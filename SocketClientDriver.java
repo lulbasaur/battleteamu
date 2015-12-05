@@ -98,13 +98,13 @@ class SocketClientDriver extends KeyAdapter{
 	    if(keys == KeyEvent.VK_A){
 		System.out.println("RIGHT");
 		latestCommand = 0;
-		ship1.move(w, frame, ++x, y);
+		ship1.move(w, frame, --x, y);
 		outToServer.writeObject(latestCommand);
 	    }
 	    else if(keys == KeyEvent.VK_D){
 		System.out.println("LEFT");
 		latestCommand = 1;
-		ship1.move(w, frame, --x, y);
+		ship1.move(w, frame, ++x, y);
 		outToServer.writeObject(latestCommand);
 
 	    }
