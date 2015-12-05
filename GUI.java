@@ -12,6 +12,39 @@ public class GUI extends JPanel {
     private Image bg;
     private JLabel ship1;
     private JLabel ship2;
+    private JLabel alien;
+
+    private static final int EMPTY = 0;
+    private static final int SHIP1 = 1;
+    private static final int SHIP2 = 2;
+    private static final int ALIEN = 3;
+    private static final int LAZER = 4;
+    
+    public void updateFrame(JFrame frame, Coordinate[] cV) {
+	int c = 0;
+	while (c <= cV.length) {
+	    switch (cV[c].getObjectType())
+		{
+		case EMPTY:  
+
+		    break;
+		case SHIP1:  moveShip1(frame, cV[c].getX(), cV[c].getY());
+
+		    break;
+		case SHIP2:  moveShip2(frame, cV[c].getX(), cV[c].getY());
+
+		    break;
+		case ALIEN:  
+
+		    break;
+		case LAZER:  
+
+		    break;
+		}   
+	    moveShip1(frame, cV[c].getX(), cV[c].getY());
+	    c++;
+	}
+    }
 
     public void drawBackground(JFrame frame) {
         this.bg = new ImageIcon("graphics/bg.png").getImage();
@@ -27,7 +60,11 @@ public class GUI extends JPanel {
 	frame.pack();
 	frame.setVisible(true);
     }
+    /*
+    public void placeAlien(JFrame frame) {
 
+    }*/
+    
     public void placeShip1(JFrame frame) {
 	this.ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));
 	ship1.setSize(30, 30);

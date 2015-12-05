@@ -27,7 +27,7 @@ class Battle{
         Ship ship2 = new Ship(w, frame, 2);
 
 	ship1.move(w, frame, 3, 3);
-	ship2.move(w, frame, 6, 6);
+	ship2.move(w, frame, 4, 3);
 	
 	/*
 	CoordinateGrid CD = new CoordinateGrid(20);

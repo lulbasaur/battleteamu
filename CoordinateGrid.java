@@ -4,9 +4,11 @@ class CoordinateGrid{
     Map<Integer,Coordinate> coordGrid = new HashMap<Integer,Coordinate>();
     int dimensions;
 
-    private static final int HIT = 0;
-    private static final int OCC = 1;
-    private static final int UNOCC = 2;
+    private static final int EMPTY = 0;
+    private static final int SHIP1 = 1;
+    private static final int SHIP2 = 2;
+    private static final int ALIEN = 3;
+    private static final int LAZER = 4;
 
 
     CoordinateGrid(int d){
@@ -20,7 +22,6 @@ class CoordinateGrid{
 	}
     }
 
-    
     public void printGrid(){
 	int N = (dimensions * dimensions) - 1;
 	int i = 0;
@@ -42,13 +43,19 @@ class CoordinateGrid{
 	int key = x + dimensions * y;
 	switch (choice)
 	    {
-	    case HIT:  coordGrid.get(key).hit();
+	    case EMPTY:  coordGrid.get(key).empty();
 
 		break;
-	    case OCC:  coordGrid.get(key).occupy();
+	    case SHIP1:  coordGrid.get(key).ship1();
 
 		break;
-	    case UNOCC:  coordGrid.get(key).unOccupy();
+	    case SHIP2:  coordGrid.get(key).ship2();
+
+		break;
+	    case ALIEN:  coordGrid.get(key).alien();
+
+		break;
+	    case LAZER:  coordGrid.get(key).empty();
 
 		break;
 		     
