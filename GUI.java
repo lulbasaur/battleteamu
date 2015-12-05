@@ -99,24 +99,12 @@ public class GUI extends JPanel {
     }
 
     public void moveShip1(JFrame frame, int x, int y) {
-	if (x != 0) {
-	    x = x * 30;
-	}
-	if (y != 0) {
-	    y = y * 30;
-	}
-	ship1.setLocation(x, y);
+	ship1.setLocation(x*30, y*30);
 	repaint();
     }
 
     public void moveShip2(JFrame frame, int x, int y) {
-	if (x != 0) {
-	    x = x * 30;
-	}
-	if (y != 0) {
-	    y = y * 30;
-	}
-	ship2.setLocation(x, y);
+	ship2.setLocation(x*30, y*30);
 	repaint();
     }
 
