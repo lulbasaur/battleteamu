@@ -10,7 +10,7 @@ class SocketClient{
     public static void main(String[] args) {
 	ObjectInputStream inFromServer;
 	ObjectOutputStream outToServer;
-	String server = "192.168.0.2";
+	String server = "localhost";
 	int port = 2044;
 
 	SocketClientDriver SCD = new SocketClientDriver(server, port);

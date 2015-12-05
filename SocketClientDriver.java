@@ -38,7 +38,7 @@ class SocketClientDriver extends KeyAdapter{
 	  panel.requestFocusInWindow();*/
 	
 	frame = new JFrame();
-        frame.setPreferredSize(new Dimension(600,600));
+    frame.setPreferredSize(new Dimension(600,600));
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	w = new GUI();
@@ -98,13 +98,13 @@ class SocketClientDriver extends KeyAdapter{
 	
 	    int keys = e.getKeyCode();
 	    if(keys == KeyEvent.VK_A){
-		System.out.println("RIGHT");
+		System.out.println("LEFT");
 		latestCommand = 0;
 		ship1.move(w, frame, --x, y);
 		outToServer.writeObject(latestCommand);
 	    }
 	    else if(keys == KeyEvent.VK_D){
-		System.out.println("LEFT");
+		System.out.println("RIGHT");
 		latestCommand = 1;
 		ship1.move(w, frame, ++x, y);
 		outToServer.writeObject(latestCommand);
