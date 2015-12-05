@@ -16,6 +16,7 @@ class Battle{
     
     public static void main(String[] args) {
 
+	/*
 	JFrame frame = new JFrame();
         frame.setPreferredSize(new Dimension(600,600));
 	
@@ -28,8 +29,8 @@ class Battle{
 
 	ship1.move(w, frame, 3, 3);
 	ship2.move(w, frame, 4, 3);
+	*/
 	
-	/*
 	CoordinateGrid CD = new CoordinateGrid(20);
 
 	
@@ -81,7 +82,7 @@ class Battle{
 	
 	clearScreen();
 	CD.printGrid();
-	*/
+	
 	
     }
     public static void clearScreen() {  

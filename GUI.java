@@ -34,7 +34,7 @@ public class GUI extends JPanel {
 		case SHIP2:  moveShip2(frame, cV[c].getX(), cV[c].getY());
 
 		    break;
-		case ALIEN:  
+		case ALIEN:  moveAlien(frame, cV[c].getX(), cV[c].getY()); 
 
 		    break;
 		case LAZER:  
@@ -60,10 +60,28 @@ public class GUI extends JPanel {
 	frame.pack();
 	frame.setVisible(true);
     }
-    /*
+    
     public void placeAlien(JFrame frame) {
+	this.alien = new JLabel(new ImageIcon("graphics/alien.png"));
+	alien.setSize(30, 30);
+	alien.setLocation(300, 100);
+	this.add(alien);
+	frame.add(this);
+	frame.pack();
+	repaint();
+	frame.setVisible(true);
+    }
 
-    }*/
+    public void moveAlien(JFrame frame, int x, int y) {
+	if (x != 0) {
+	    x = x * 30;
+	}
+	if (y != 0) {
+	    y = y * 30;
+	}
+	alien.setLocation(x, y);
+	repaint();
+    }
     
     public void placeShip1(JFrame frame) {
 	this.ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));

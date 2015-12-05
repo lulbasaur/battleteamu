@@ -24,6 +24,7 @@ class SocketClientDriver extends KeyAdapter{
     JFrame frame;
     Ship ship1;
     Ship ship2;
+    Alien alien1;
     
     public SocketClientDriver(String server, int port) {
 	
@@ -50,6 +51,7 @@ class SocketClientDriver extends KeyAdapter{
  
 	ship1 = new Ship(w, frame, 1);
         ship2 = new Ship(w, frame, 2);
+	alien1 = new Alien(w, frame);
 	
 	try {
 	    Socket socket1 = new Socket(server, port);
