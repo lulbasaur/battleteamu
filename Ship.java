@@ -31,6 +31,8 @@ class Ship {
 	if (this.player == 2) {
 	    g.moveShip2(frame, x, y);
 	}
+	this.xCoord = x;
+	this.yCoord = y;
     }
     
 }
