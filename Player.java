@@ -42,13 +42,17 @@ public class Player extends Thread{
 		    switch(choice){
 		    case 0:
 			System.out.println("Respons by player "+ playerNr +": " + pname + " RIGHT");
+			break;
 		    case 1:
 			System.out.println("Respons by player "+ playerNr +": " + pname + " LEFT");
+			break;		  		    
 		    case 2:
 			System.out.println("Respons by player "+ playerNr +": " + pname + " FIRE");
+			break;
 		    default:
 		    break;
 		    }
+		    pname = -1;
 		}
 	    }
 	    catch( EOFException e ) {

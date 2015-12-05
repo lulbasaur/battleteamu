@@ -19,11 +19,46 @@ class Coordinate{
     public int getX(){ return x; }
     public int getY(){ return y; }
 
-    public void ship1(){ this.ship1 = true; objectType = 1; }   
-    public void ship2(){ this.ship2 = true; objectType = 2; }   
-    public void alien(){ this.alien = true; objectType = 3; }
-    public void lazer(){ this.lazer = true; objectType = 4; }
-    public void empty(){ this.empty = true; objectType = 5; }
+    public void ship1(){
+	objectType = 1;
+	this.ship1 = true;
+	this.ship2 = false;
+	this.alien = false;
+	this.lazer = false;
+	this.empty = false;
+    }   
+    public void ship2(){
+	objectType = 2;
+	this.ship1 = false;
+	this.ship2 = true;
+	this.alien = false;
+	this.lazer = false;
+	this.empty = false;
+    }   
+    public void alien(){
+	objectType = 3;
+	this.ship1 = false; 
+	this.ship2 = false;
+	this.alien = true;
+	this.lazer = false;
+	this.empty = false;
+    }
+    public void lazer(){
+	objectType = 4;
+	this.ship1 = false; 
+	this.ship2 = false;
+	this.alien = false;
+	this.lazer = true;
+	this.empty = false;
+    }
+    public void empty(){
+	objectType = 5;
+	this.ship1 = false; 
+	this.ship2 = false;
+	this.alien = false;
+	this.lazer = false;
+	this.empty = true;
+    }
 
     public boolean isShip1(){ return ship1; }
     public boolean isShip2(){ return ship2; }

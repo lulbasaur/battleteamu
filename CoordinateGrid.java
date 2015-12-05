@@ -1,14 +1,16 @@
 import java.util.*;
+import java.util.concurrent.*;
 
 class CoordinateGrid{
-    Map<Integer,Coordinate> coordGrid = new HashMap<Integer,Coordinate>();
+    Map<Integer,Coordinate> coordGrid = new ConcurrentHashMap<Integer,Coordinate>();
     int dimensions;
 
-    private static final int EMPTY = 0;
     private static final int SHIP1 = 1;
     private static final int SHIP2 = 2;
     private static final int ALIEN = 3;
     private static final int LAZER = 4;
+    private static final int EMPTY = 5;
+
 
 
     CoordinateGrid(int d){
