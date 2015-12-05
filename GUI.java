@@ -41,7 +41,6 @@ public class GUI extends JPanel {
 
 		    break;
 		}   
-	    moveShip1(frame, cV[c].getX(), cV[c].getY());
 	    c++;
 	}
     }
@@ -73,13 +72,7 @@ public class GUI extends JPanel {
     }
 
     public void moveAlien(JFrame frame, int x, int y) {
-	if (x != 0) {
-	    x = x * 30;
-	}
-	if (y != 0) {
-	    y = y * 30;
-	}
-	alien.setLocation(x, y);
+	alien.setLocation(x*30, y*30);
 	repaint();
     }
     
