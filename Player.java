@@ -13,6 +13,7 @@ public class Player extends Thread{
     ObjectOutputStream output= null;
     GameEngine GE;
 
+    ServerMessage messageToClient;
     public Player(Socket s, int n, GameEngine GE){
 
 	this.GE = GE;
@@ -62,7 +63,8 @@ public class Player extends Thread{
 		    }
 		    pname = -1;
 		}
-		output.writeObject(new ServerMessage(GE.updateVector));
+		messageToClient = new ServerMessage(GE.updateVector);
+		output.writeObject(messageToClient);
 	    }
 	    catch( EOFException e ) {
 		return;

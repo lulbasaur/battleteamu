@@ -14,6 +14,7 @@ public class InvaderServer implements Runnable{
 	ServerSocket serverSocket = null;
 	CoordinateGrid CG = new CoordinateGrid(20);
 	GameEngine GE = new GameEngine(CG);
+	GE.init(9,19,10,18,5);
 	
 	try {serverSocket = new ServerSocket(serverPort);}	
 	catch (IOException e) {
