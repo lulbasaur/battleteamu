@@ -66,7 +66,7 @@ public class GUI extends JPanel {
     public void placeAlien(JFrame frame) {
 	this.alien = new JLabel(new ImageIcon("graphics/alien.png"));
 	alien.setSize(30, 30);
-	alien.setLocation(300, 100);
+	alien.setLocation(300, 120);
 	this.add(alien);
 	frame.add(this);
 	frame.pack();
