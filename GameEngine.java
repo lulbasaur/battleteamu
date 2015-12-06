@@ -99,7 +99,7 @@ class GameEngine{
 
     public void killAlien(int player){
 	int frontAlien = -1;
-	int maxLength = updateVector.length - 2; 
+	int maxLength = updateVector.length; 
 	if (player == 1){   //kolla om player 1 dödar en alien
 	    int xAxis = p1Position.getX();
 	  
@@ -147,7 +147,7 @@ class GameEngine{
 
 
 	   boolean moveSideways = true;
-	   int maxLength = updateVector.length - 1;
+	   int maxLength = updateVector.length ;
 	   int i;
 	   int j;
 
