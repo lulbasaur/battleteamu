@@ -15,10 +15,10 @@ class GameEngine{
     }
 
     public void init(int x1,int y1,int x2,int y2, int alienNr){
-	p1Position.ship();
+	p1Position.ship1();
 	p1Position.alterCoordinate(x1,y1);
 
-	p1Position.ship();
+	p1Position.ship2();
 	p2Position.alterCoordinate(x2,y2);
 	
 	aliens = new Coordinate[alienNr];

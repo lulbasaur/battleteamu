@@ -63,11 +63,30 @@ public class GUI extends JPanel {
 	frame.setVisible(true);
     }
     
-    public void placeAlien(JFrame frame) {
-	this.alien = new JLabel(new ImageIcon("graphics/alien.png"));
-	alien.setSize(30, 30);
-	alien.setLocation(300, 120);
-	this.add(alien);
+    public void placeAliens(JFrame frame, int width, int height) {
+	width = width * 30;
+	height = height * 30;
+	int cX = 0;
+	int cY = 0;
+	int positionX = 0;
+	int positionY = 0;
+
+	while (positionX < width) {
+	    while (positionY < height) {
+		JLabel alien;
+		alien = new JLabel(new ImageIcon("graphics/alien.png"));
+		alien.setSize(30, 30);
+		alien.setLocation(positionX, positionY);
+		this.add(alien);
+		cY++;
+		positionY = 30 * cY;
+	    }
+	    cY = 0;
+	    positionY = 0;
+	    cX++;
+	    positionX = 30 * cX;
+	}
+
 	frame.add(this);
 	frame.pack();
 	repaint();

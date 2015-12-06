@@ -14,7 +14,7 @@ class Alien {
     private int yCoord = 0;
 
     Alien(GUI g, JFrame frame) {
-	g.placeAlien(frame);
+	g.placeAliens(frame, 6, 4);
     }
 
     public void move(GUI g, JFrame frame, int x, int y) {
@@ -23,4 +23,12 @@ class Alien {
 	this.yCoord = y;
     }
 
+    public void setX(int value) { xCoord = value; }
+    
+    public void setY(int value) { yCoord = value; }
+
+    public int getX() { return xCoord; }
+
+    public int getY() { return yCoord; }
+    
 }
