@@ -52,11 +52,11 @@ class GameEngine{
 		    p1Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p1right " + updatedX);
 		}
-		if (p1Position.getX() == CD.dimensions){
+			else {
 		    int sameX = p1Position.getX();
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(updatedX,sameY);	
-		}
+		    p1Position.alterCoordinate(sameX,sameY);	
+		    }
 		break;
 	    case 1:
 		//p1 left
@@ -66,16 +66,17 @@ class GameEngine{
 		    p1Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p1left " + updatedX);
 		}
-		if (p1Position.getX() == 0){
+		else {
 		    int sameX = p1Position.getX();
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(updatedX,sameY);	
+		    p1Position.alterCoordinate(sameX,sameY);	
 		    }
 		    
-		}
+	    
 		break;
 	    }
 	}
+    
 	else if(player == 2){
 	    switch(rightleft){
 		//p2 right
@@ -86,11 +87,11 @@ class GameEngine{
 		    p2Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p2right "  + updatedX);
 		}
-		if (p2Position.getX() == CD.dimensions){
+		else{
 		    int sameX = p1Position.getX();
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(updatedX,sameY);	
-		}
+		    p1Position.alterCoordinate(sameX,sameY);	
+		    }
 		break;
 		//p2 left
 	    case 1:
@@ -100,10 +101,10 @@ class GameEngine{
 		    p2Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p2left " + updatedX);
 		}
-		if (p2Position.getX() == 0){
+	        else{
 		    int sameX = p1Position.getX();
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(updatedX,sameY);	
+		    p1Position.alterCoordinate(sameX,sameY);	
 		    }
 		break;
 	    }
@@ -162,6 +163,7 @@ class GameEngine{
     }
 
 
+
     
    public void moveAlien(int nextMove){
        //looks if alien can move right. if not, move down
@@ -171,16 +173,16 @@ class GameEngine{
 	   int maxLength = updateVector.length ;
 	   int i;
 	   int j;
-
-       if (nextMove == 1) {
 	   
 
-	   for(i=2; i < maxLength && moveSideways == true; i++){
+	   
+	   
+	   for(i=2; i < maxLength && moveSideways == true && nextMove == 1; i++){
 	       if(updateVector[i].isAlien() && updateVector[i].getX() == CD.dimensions)
-	       moveSideways = false;
+		   moveSideways = false;
 	   }
 	   
-	   if (moveSideways == true)
+	   if (moveSideways == true){
 	       for (j=2; j < maxLength; j++){
 		   if(updateVector[j].isAlien()){
 		       int updatedX = updateVector[j].getX() + 1;
@@ -188,30 +190,31 @@ class GameEngine{
 		       updateVector[j].alterCoordinate(updatedX,sameY);
 		       nextMove = 0;
 		   }
-		   
 	       }
+	   }
 	   if(moveSideways == false){
 	       
-	   for(j=2; j < maxLength; j++){
-	       if(updateVector[j].isAlien()){
-		   int sameX = updateVector[j].getX();
-		   int updatedY = updateVector[j].getY() + 1;
-		   updateVector[j].alterCoordinate(sameX,updatedY);
-		   nextMove = 0;
+	       for(j=2; j < maxLength; j++){
+		   if(updateVector[j].isAlien()){
+		       int sameX = updateVector[j].getX();
+		       int updatedY = updateVector[j].getY() + 1;
+		       updateVector[j].alterCoordinate(sameX,updatedY);
+		       nextMove = 0;
+		   }
+		   
 	       }
-	       
 	   }
-	   }
-       }
-       //looks if aliens can move left, if not move down
+   
+//looks if aliens can move left, if not move down
 
-       if (nextMove == 0) {
-	   for(i=2; i < maxLength && moveSideways == true; i++){
+      
+	   for(i=2; i < maxLength && moveSideways == true && nextMove == 0; i++){
 	       if(updateVector[i].isAlien() && updateVector[i].getX() == 0)
 		   moveSideways = false;
 	   }
+       
 	   
-	   if (moveSideways == true)
+	   if (moveSideways == true){
 	       for (j=2; j < maxLength; j++){
 		   if(updateVector[j].isAlien()){
 		       int updatedX = updateVector[j].getX() - 1;
@@ -220,6 +223,7 @@ class GameEngine{
 		       nextMove = 1;
 		   }
 	       }
+	   }
 
 	   if(moveSideways == false){
 	       for(j=2; j < maxLength; j++){
@@ -232,8 +236,8 @@ class GameEngine{
 		   
 	       }
 	   }
-       }
    }
+   
 
 
 }
