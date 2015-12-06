@@ -74,6 +74,7 @@ class SocketClientDriver extends KeyAdapter{
 		 här ska gui:n updateras
 		 */
 		w.updateFrame(frame, updatedArray);
+		System.out.println("kuk");
 
 	    }
 

@@ -11,21 +11,32 @@ public class GUI extends JPanel {
 
     private Image bg;
     private JLabel ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));
-    //this.add(ship1);
-    private JLabel ship2;
+    private JLabel ship2 = new JLabel(new ImageIcon("graphics/ship2.png"));
     //private JLabel alien;
 
     //private Ship dummyShip1 = new Ship(1);
     //private Ship dummyShip2 = new Ship(2);
 
     private int numberOfAliens = 20;
-    private JLabel[] alienArray = new JLabel[numberOfAliens];
+
+    private JLabel[] alienArray = generateAliens(numberOfAliens);
 
     private static final int EMPTY = 0;
     private static final int SHIP1 = 1;
     private static final int SHIP2 = 2;
     private static final int ALIEN = 3;
     private static final int LAZER = 4;
+
+    public JLabel[] generateAliens(int numberOfAliens) {
+	int c = 0;
+	JLabel[] alienArray = new JLabel[numberOfAliens];
+	while (c < numberOfAliens) {
+	    JLabel alien = new JLabel(new ImageIcon("graphics/alien.png"));
+	    alienArray[c] = alien;
+	    c++;
+	}
+	return alienArray;
+    }
     
     public void updateFrame(JFrame frame, Coordinate[] cV) {
 	int c = 0;
@@ -67,7 +78,6 @@ public class GUI extends JPanel {
 	frame.setVisible(true);
     }
 
-
     public void drawEmpty(JFrame frame, Coordinate c) {
 	int x = c.getX() * 30;
 	int y = c.getY() * 30;
@@ -87,8 +97,7 @@ public class GUI extends JPanel {
 	int x = c.getX() * 30;
 	int y = c.getY() * 30;
 
-	this.remove(ship1);
-	
+	this.ship1.setIcon(new ImageIcon());
         this.ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));
 	ship1.setSize(30, 30);
 	ship1.setLocation(x, y); //x = 9, y = 15
@@ -104,6 +113,7 @@ public class GUI extends JPanel {
 	int x = c.getX() * 30;
 	int y = c.getY() * 30;
 
+	this.ship2.setIcon(new ImageIcon());
 	this.ship2 = new JLabel(new ImageIcon("graphics/ship2.png"));
 	ship2.setSize(30, 30);
 	ship2.setLocation(x, y);
@@ -118,11 +128,14 @@ public class GUI extends JPanel {
     public void drawAlien(JFrame frame, Coordinate c) {
 	int x = c.getX() * 30;
 	int y = c.getY() * 30;
-
-	JLabel alien = new JLabel(new ImageIcon("graphics/alien.png"));
-	alien.setSize(30, 30);
-	alien.setLocation(x, y);
-	this.add(alien);
+	int alienNumber = c.getAlienNumber();
+	
+	this.alienArray[alienNumber].setIcon(new ImageIcon());
+	
+	this.alienArray[alienNumber] = new JLabel(new ImageIcon("graphics/alien.png"));
+	this.alienArray[alienNumber].setSize(30, 30);
+	this.alienArray[alienNumber].setLocation(x, y);
+	this.add(this.alienArray[alienNumber]);
 
 	frame.add(this);
 	frame.pack();

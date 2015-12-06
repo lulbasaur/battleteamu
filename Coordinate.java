@@ -40,8 +40,9 @@ class Coordinate{
 	this.lazer = false;
 	this.empty = false;
     }   
-    public void alien(){
+    public void alien(int number){
 	objectType = 3;
+	alienNumber = number;
 	this.ship1 = false; 
 	this.ship2 = false;
 	this.alien = true;
@@ -72,6 +73,8 @@ class Coordinate{
     public boolean isEmpty(){ return empty; }
 
     public int getObjectType(){ return objectType; }
+
+    public int getAlienNumber(){ return alienNumber; }
     
     public String returnSymbol(){
 

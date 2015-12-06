@@ -40,7 +40,7 @@ class CoordinateGrid{
 	    yAxis++;
 	}
     }
-
+    /*
     public void alterGrid(int choice, int x, int y){
 	int key = x + dimensions * y;
 	switch (choice)
@@ -63,6 +63,7 @@ class CoordinateGrid{
 		     
 	    }
     }
+    */
 
     static public String returnCharAxis(int d){
 	if (d < 27) {

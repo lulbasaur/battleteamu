@@ -37,7 +37,7 @@ class GameEngine{
 	
 	for(int i = 2 ; i < len; i++){
 	    updateVector[i] = new Coordinate(x++,y);
-	    updateVector[i].alien();		
+	    updateVector[i].alien(i-2);		
 	}
     }
 
