@@ -14,8 +14,7 @@ class GameEngine{
     Coordinate[] updateVector;
     
     public GameEngine(CoordinateGrid CD){
-	this.CD = CD;
-	
+	this.CD = CD;	
     }
 
     public void init(int x1,int y1,int x2,int y2, int alienNr){
@@ -40,6 +39,7 @@ class GameEngine{
 	    updateVector[i].alien(i-2);		
 	}
     }
+    
 
     public void movePlayer(int player, int rightleft){
 	if(player == 1){
@@ -55,7 +55,7 @@ class GameEngine{
 		if (p1Position.getX() == CD.dimensions){
 		    int sameX = p1Position.getX();
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(updatedX,sameY);	
+		    p1Position.alterCoordinate(sameX,sameY);	
 		}
 		break;
 	    case 1:
@@ -69,13 +69,12 @@ class GameEngine{
 		if (p1Position.getX() == 0){
 		    int sameX = p1Position.getX();
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(updatedX,sameY);	
-		    }
-		    
+		    p1Position.alterCoordinate(sameX,sameY);	
 		}
-		break;
+		break;	    
 	    }
 	}
+	
 	else if(player == 2){
 	    switch(rightleft){
 		//p2 right
@@ -86,10 +85,10 @@ class GameEngine{
 		    p2Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p2right "  + updatedX);
 		}
-		if (p2Position.getX() == CD.dimensions){
+		else if (p2Position.getX() == CD.dimensions){
 		    int sameX = p1Position.getX();
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(updatedX,sameY);	
+		    p1Position.alterCoordinate(sameX,sameY);	
 		}
 		break;
 		//p2 left
@@ -100,11 +99,11 @@ class GameEngine{
 		    p2Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p2left " + updatedX);
 		}
-		if (p2Position.getX() == 0){
+		else if (p2Position.getX() == 0){
 		    int sameX = p1Position.getX();
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(updatedX,sameY);	
-		    }
+		    p1Position.alterCoordinate(sameX,sameY);	
+		}
 		break;
 	    }
 	}
@@ -136,7 +135,7 @@ class GameEngine{
 	    }
 	    
 	    if(frontAlien != -1 ){
-  updateVector[frontAlien].shot();
+		updateVector[frontAlien].shot();
 	    }
 	    
 	}		  
@@ -156,91 +155,94 @@ class GameEngine{
 		i++;
 	    }
 	    if(frontAlien != -1 ){
-  updateVector[frontAlien].shot();
+		updateVector[frontAlien].shot();
 	    }
 	}	
     }
 
 
     
-   public void moveAlien(int nextMove){
-       //looks if alien can move right. if not, move down
+    public void moveAlien(int nextMove){
+	//looks if alien can move right. if not, move down
 
+	boolean moveSideways = true;
+	int maxLength = updateVector.length ;
+	int i;
+	int j;
 
-	   boolean moveSideways = true;
-	   int maxLength = updateVector.length ;
-	   int i;
-	   int j;
-
-       if (nextMove == 1) {
+	if (nextMove == 1) {
+	    for(i=2; i < maxLength && moveSideways == true; i++){
+		if(updateVector[i].isAlien() && updateVector[i].getX() == CD.dimensions)
+		    moveSideways = false;
+	    }
 	   
-
-	   for(i=2; i < maxLength && moveSideways == true; i++){
-	       if(updateVector[i].isAlien() && updateVector[i].getX() == CD.dimensions)
-	       moveSideways = false;
-	   }
-	   
-	   if (moveSideways == true)
-	       for (j=2; j < maxLength; j++){
-		   if(updateVector[j].isAlien()){
-		       int updatedX = updateVector[j].getX() + 1;
-		       int sameY = updateVector[j].getY();
-		       updateVector[j].alterCoordinate(updatedX,sameY);
-		       nextMove = 0;
-		   }
+	    if (moveSideways == true){
+		for (j=2; j < maxLength; j++){
+		    if(updateVector[j].isAlien()){
+			int updatedX = updateVector[j].getX() + 1;
+			int sameY = updateVector[j].getY();
+			updateVector[j].alterCoordinate(updatedX,sameY);
+			nextMove = 0;
+		    }
 		   
-	       }
-	   if(moveSideways == false){
+		}
+	    }
+	
+	    if(moveSideways == false){
 	       
-	   for(j=2; j < maxLength; j++){
-	       if(updateVector[j].isAlien()){
-		   int sameX = updateVector[j].getX();
-		   int updatedY = updateVector[j].getY() + 1;
-		   updateVector[j].alterCoordinate(sameX,updatedY);
-		   nextMove = 0;
-	       }
+		for(j=2; j < maxLength; j++){
+		    if(updateVector[j].isAlien()){
+			int sameX = updateVector[j].getX();
+			int updatedY = updateVector[j].getY() + 1;
+			updateVector[j].alterCoordinate(sameX,updatedY);
+			nextMove = 0;
+		    }
 	       
-	   }
-	   }
-       }
-       //looks if aliens can move left, if not move down
+		}
+	    }
+	}
+	//looks if aliens can move left, if not move down
 
-       if (nextMove == 0) {
-	   for(i=2; i < maxLength && moveSideways == true; i++){
-	       if(updateVector[i].isAlien() && updateVector[i].getX() == 0)
-		   moveSideways = false;
-	   }
+	if (nextMove == 0) {
+	    for(i=2; i < maxLength && moveSideways == true; i++){
+		if(updateVector[i].isAlien() && updateVector[i].getX() == 0)
+		    moveSideways = false;
+	    }
 	   
-	   if (moveSideways == true)
-	       for (j=2; j < maxLength; j++){
-		   if(updateVector[j].isAlien()){
-		       int updatedX = updateVector[j].getX() - 1;
-		       int sameY = updateVector[j].getY();
-		       updateVector[j].alterCoordinate(updatedX,sameY);
-		       nextMove = 1;
-		   }
-	       }
+	    if (moveSideways == true){
+		for (j=2; j < maxLength; j++){
+		    if(updateVector[j].isAlien()){
+			int updatedX = updateVector[j].getX() - 1;
+			int sameY = updateVector[j].getY();
+			updateVector[j].alterCoordinate(updatedX,sameY);
+			nextMove = 1;
+		    }
+		}
 
-	   if(moveSideways == false){
-	       for(j=2; j < maxLength; j++){
-		   if(updateVector[j].isAlien()){
-		       int sameX = updateVector[j].getX();
-		       int updatedY = updateVector[j].getY() + 1;
-		       updateVector[j].alterCoordinate(sameX,updatedY);
-		       nextMove = 1;
-		   }
+		if(moveSideways == false){
+		    for(j=2; j < maxLength; j++){
+			if(updateVector[j].isAlien()){
+			    int sameX = updateVector[j].getX();
+			    int updatedY = updateVector[j].getY() + 1;
+			    updateVector[j].alterCoordinate(sameX,updatedY);
+			    nextMove = 1;
+			}
 		   
-	       }
-	   }
-       }
-   }
-
-
+		    }
+		}
+	    }
+	}
+    }
 }
+
+    
+
+
+    
+  
        
        
-       
-       /*
+    /*
 
 fire metod:
 
