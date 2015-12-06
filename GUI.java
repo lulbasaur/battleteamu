@@ -79,7 +79,7 @@ public class GUI extends JPanel {
     public void placeShip1(JFrame frame) {
 	this.ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));
 	ship1.setSize(30, 30);
-	ship1.setLocation(300, 400);
+	ship1.setLocation(300, 390); //x = 10, y = 13
 	this.add(ship1);
 	frame.add(this);
 	frame.pack();
@@ -90,7 +90,7 @@ public class GUI extends JPanel {
     public void placeShip2(JFrame frame) {
 	this.ship2 = new JLabel(new ImageIcon("graphics/ship2.png"));
 	ship2.setSize(30, 30);
-	ship2.setLocation(270, 500);
+	ship2.setLocation(270, 450); //x = 9, y = 15
 	this.add(ship2);
 	frame.add(this);
 	frame.pack();

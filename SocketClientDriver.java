@@ -18,8 +18,13 @@ class SocketClientDriver extends KeyAdapter{
     ObjectInputStream inFromServer;
     ObjectOutputStream outToServer;
 
-    int x;
-    int y;
+    //ship1 & 2's koordinater vid spawn, för att slippa utgå från 0.
+    //Dessa löser problemet med att de hoppar upp, men ingen snygg lösning
+    int ship1X = 10;
+    int ship1Y = 13;
+    int ship2X = 9;
+    int ship2Y = 15;
+    
     GUI w;
     JFrame frame;
     Ship ship1;
@@ -38,7 +43,7 @@ class SocketClientDriver extends KeyAdapter{
 	  panel.requestFocusInWindow();*/
 	
 	frame = new JFrame();
-    frame.setPreferredSize(new Dimension(600,600));
+	frame.setPreferredSize(new Dimension(600,600));
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	w = new GUI();
@@ -88,11 +93,6 @@ class SocketClientDriver extends KeyAdapter{
         }
     }
 
- 
-	    
-
-    
-    
     public void keyPressed(KeyEvent e){
 	try{
 	
@@ -100,13 +100,13 @@ class SocketClientDriver extends KeyAdapter{
 	    if(keys == KeyEvent.VK_A){
 		System.out.println("LEFT");
 		latestCommand = 0;
-		ship1.move(w, frame, --x, y);
+		ship1.move(w, frame, --ship1X, ship1Y);
 		outToServer.writeObject(latestCommand);
 	    }
 	    else if(keys == KeyEvent.VK_D){
 		System.out.println("RIGHT");
 		latestCommand = 1;
-		ship1.move(w, frame, ++x, y);
+		ship1.move(w, frame, ++ship1X, ship1Y);
 		outToServer.writeObject(latestCommand);
 
 	    }
