@@ -17,28 +17,22 @@ class SocketClientDriver extends KeyAdapter{
     int latestCommand;
     ObjectInputStream inFromServer;
     ObjectOutputStream outToServer;
-
-    int x;
-    int y;
+  
     GUI w;
     JFrame frame;
     Ship ship1;
     Ship ship2;
     Alien alien1;
+
+    int ship1X;
+    int ship1Y;
+    int ship2X;
+    int ship2Y;
     
     public SocketClientDriver(String server, int port) {
 	
-        /*JFrame frame = new JFrame("testframe");
-	  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  JPanel panel = new JPanel();
-	  panel.addKeyListener(this);
-	  frame.add(panel);
-	  frame.setSize(500, 500);
-	  frame.setVisible(true);
-	  panel.requestFocusInWindow();*/
-	
 	frame = new JFrame();
-        frame.setPreferredSize(new Dimension(600,600));
+	frame.setPreferredSize(new Dimension(600,600));
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	w = new GUI();
@@ -52,6 +46,11 @@ class SocketClientDriver extends KeyAdapter{
 	ship1 = new Ship(w, frame, 1);
         ship2 = new Ship(w, frame, 2);
 	alien1 = new Alien(w, frame);
+
+	ship1X = ship1.getX();
+	ship1Y = ship1.getY();
+	ship2X = ship2.getX();
+	ship2Y = ship2.getY();
 	
 	try {
 	    Socket socket1 = new Socket(server, port);
@@ -88,25 +87,20 @@ class SocketClientDriver extends KeyAdapter{
         }
     }
 
- 
-	    
-
-    
-    
     public void keyPressed(KeyEvent e){
 	try{
 	
 	    int keys = e.getKeyCode();
 	    if(keys == KeyEvent.VK_A){
-		System.out.println("RIGHT");
+		System.out.println("LEFT");
 		latestCommand = 0;
-		ship1.move(w, frame, --x, y);
+		ship1.move(w, frame, --ship1X, ship1Y);
 		outToServer.writeObject(latestCommand);
 	    }
 	    else if(keys == KeyEvent.VK_D){
-		System.out.println("LEFT");
+		System.out.println("RIGHT");
 		latestCommand = 1;
-		ship1.move(w, frame, ++x, y);
+		ship1.move(w, frame, ++ship1X, ship1Y);
 		outToServer.writeObject(latestCommand);
 
 	    }

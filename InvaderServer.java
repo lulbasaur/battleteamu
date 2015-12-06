@@ -27,7 +27,8 @@ public class InvaderServer implements Runnable{
 		
 		System.out.println("Listening...");
 		Socket s = serverSocket.accept();
-		System.out.println("Got connection from player: " + (i+1));		    
+		System.out.println("Got connection from player: " + (i+1));
+		
 		if(i < 2){
 		    playerVector[i] = new Player(s,i+1);	
 		}
