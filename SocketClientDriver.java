@@ -71,11 +71,12 @@ class SocketClientDriver extends KeyAdapter{
 		    updatedArray = sR.getArray();
 
 		    System.out.print("(PLAYER) p1X: " + updatedArray[0].getX());
-		    w.updateFrame(frame, updatedArray);
 		}
 		/**
 		 här ska gui:n updateras
 		 */
+		w.updateFrame(frame, updatedArray);
+
 
 
 	    }
