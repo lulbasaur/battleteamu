@@ -28,6 +28,8 @@ class SocketClientDriver extends KeyAdapter{
     int ship1Y;
     int ship2X;
     int ship2Y;
+
+    Coordinate[] updatedArray;
     
     public SocketClientDriver(String server, int port) {
 	
@@ -51,6 +53,7 @@ class SocketClientDriver extends KeyAdapter{
 	ship1Y = ship1.getY();
 	ship2X = ship2.getX();
 	ship2Y = ship2.getY();
+
 	
 	try {
 	    Socket socket1 = new Socket(server, port);
@@ -60,9 +63,18 @@ class SocketClientDriver extends KeyAdapter{
 	    inFromServer = new ObjectInputStream(socket1.getInputStream());
 
 
-
-	    /*    while(true){
+	    while(true){
+		Object serverRespons = (Object) input.readObject();
+		if( serverRespons instanceof ServerMessage ) {
+		    updatedArray = serverRespons.getArray();
+		}
+		/**
+		 här ska gui:n updateras
+		 */
 		
+	    }
+
+	    /*    while(true){	    
 		  Scanner scanner = new Scanner(System.in);
 		  System.out.print("Enter text: ");
 		  String usertext = scanner.next();
@@ -73,10 +85,12 @@ class SocketClientDriver extends KeyAdapter{
 		  Thread.sleep(500);
 		  } catch(InterruptedException ex) {
 		  Thread.currentThread().interrupt();
-		  }
-		
+		  }		
 		  }*/
-	} 
+	}
+	catch (EOFException e) {
+	    return;
+        }
 	catch (UnknownHostException e) {
 	    System.err.println("Don't know about host " + server);
 	    System.exit(1);

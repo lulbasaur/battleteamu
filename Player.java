@@ -42,6 +42,7 @@ public class Player extends Thread{
 		    switch(choice){
 		    case 0:
 			System.out.println("Respons by player "+ playerNr +": " + pname + " LEFT");
+			
 			break;
 		    case 1:
 			System.out.println("Respons by player "+ playerNr +": " + pname + " RIGHT");
