@@ -22,7 +22,7 @@ class SocketClientDriver extends KeyAdapter{
     JFrame frame;
     Ship ship1;
     Ship ship2;
-    Alien alien1;
+    //Alien alien1;
 
     int ship1X;
     int ship1Y;
@@ -45,9 +45,9 @@ class SocketClientDriver extends KeyAdapter{
 	frame.setVisible(true);
 
  
-	ship1 = new Ship(w, frame, 1);
-        ship2 = new Ship(w, frame, 2);
-	alien1 = new Alien(w, frame);
+	ship1 = new Ship(1);
+        ship2 = new Ship(2);
+	//alien1 = new Alien(w, frame);
 
 	ship1X = ship1.getX();
 	ship1Y = ship1.getY();
@@ -64,9 +64,10 @@ class SocketClientDriver extends KeyAdapter{
 
 
 	    while(true){
-		Object serverRespons = (Object) input.readObject();
+		Object serverRespons = (Object) inFromServer.readObject();
 		if( serverRespons instanceof ServerMessage ) {
-		    updatedArray = serverRespons.getArray();
+		    ServerMessage sR = (ServerMessage)serverRespons;
+		    updatedArray = sR.getArray();
 		}
 		/**
 		 här ska gui:n updateras
@@ -74,31 +75,24 @@ class SocketClientDriver extends KeyAdapter{
 		
 	    }
 
-	    /*    while(true){	    
-		  Scanner scanner = new Scanner(System.in);
-		  System.out.print("Enter text: ");
-		  String usertext = scanner.next();
-		  outToServer.writeObject(usertext); 
-		  outToServer.writeObject(latestCommand);
-		  latestCommand = -1;
-		  try {
-		  Thread.sleep(500);
-		  } catch(InterruptedException ex) {
-		  Thread.currentThread().interrupt();
-		  }		
-		  }*/
+
 	}
-	catch (EOFException e) {
+	catch ( EOFException e ) {
 	    return;
         }
-	catch (UnknownHostException e) {
+	catch ( UnknownHostException e ) {
 	    System.err.println("Don't know about host " + server);
 	    System.exit(1);
         }
-	catch (IOException e) {
+	catch ( IOException e ) {
             System.err.println("Couldn't get I/O for the connection to " + server);
             System.exit(1);
         }
+	catch( ClassNotFoundException e ) {
+	    e.printStackTrace();
+	    System.exit( -1 );
+	    
+	}
     }
 
     public void keyPressed(KeyEvent e){
@@ -108,13 +102,21 @@ class SocketClientDriver extends KeyAdapter{
 	    if(keys == KeyEvent.VK_A){
 		System.out.println("LEFT");
 		latestCommand = 0;
-		ship1.move(w, frame, --ship1X, ship1Y);
+		Coordinate c1 = new Coordinate(5, 5);
+		c1.ship1();
+		Coordinate c3 = new Coordinate(12, 12);
+		c3.ship1();
+	       
+		Coordinate[] cV = new Coordinate[2];
+		cV[0] = c1;
+		cV[1] = c3;
+		w.updateFrame(frame, cV);
 		outToServer.writeObject(latestCommand);
 	    }
 	    else if(keys == KeyEvent.VK_D){
 		System.out.println("RIGHT");
 		latestCommand = 1;
-		ship1.move(w, frame, ++ship1X, ship1Y);
+		//ship1.move(w, frame, ++ship1X, ship1Y);
 		outToServer.writeObject(latestCommand);
 
 	    }
