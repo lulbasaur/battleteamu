@@ -35,7 +35,7 @@ class SocketClientDriver extends KeyAdapter{
     public SocketClientDriver(String server, int port) {
 	
 	frame = new JFrame();
-	frame.setPreferredSize(new Dimension(600,600));
+	frame.setPreferredSize(new Dimension(600,620));
 	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	
 	w = new GUI();
@@ -69,6 +69,8 @@ class SocketClientDriver extends KeyAdapter{
 		if( serverResponse instanceof ServerMessage ) {
 		    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
+		    System.out.println("kuk1");
+
 		}
 		/**
 		 här ska gui:n updateras
