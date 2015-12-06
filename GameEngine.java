@@ -3,8 +3,6 @@ class GameEngine{
 
     CoordinateGrid CD;
 
-    Coordinate p1Position;
-    Coordinate p2Position;
     Coordinate[] aliens;
     int nextMove = 1; // 0 = left , 1 = right för alien
 
