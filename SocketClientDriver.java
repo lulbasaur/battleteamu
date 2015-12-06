@@ -28,6 +28,8 @@ class SocketClientDriver extends KeyAdapter{
     int ship1Y;
     int ship2X;
     int ship2Y;
+
+    Coordinate[] updatedArray;
     
     public SocketClientDriver(String server, int port) {
 	
@@ -51,6 +53,7 @@ class SocketClientDriver extends KeyAdapter{
 	ship1Y = ship1.getY();
 	ship2X = ship2.getX();
 	ship2Y = ship2.getY();
+
 	
 	try {
 	    Socket socket1 = new Socket(server, port);
@@ -59,30 +62,37 @@ class SocketClientDriver extends KeyAdapter{
 	     
 	    inFromServer = new ObjectInputStream(socket1.getInputStream());
 
-	    /*    while(true){
+
+	    while(true){
+		Object serverRespons = (Object) inFromServer.readObject();
+		if( serverRespons instanceof ServerMessage ) {
+		    ServerMessage sR = (ServerMessage)serverRespons;
+		    updatedArray = sR.getArray();
+		}
+		/**
+		 här ska gui:n updateras
+		 */
 		
-		  Scanner scanner = new Scanner(System.in);
-		  System.out.print("Enter text: ");
-		  String usertext = scanner.next();
-		  outToServer.writeObject(usertext); 
-		  outToServer.writeObject(latestCommand);
-		  latestCommand = -1;
-		  try {
-		  Thread.sleep(500);
-		  } catch(InterruptedException ex) {
-		  Thread.currentThread().interrupt();
-		  }
-		
-		  }*/
-	} 
-	catch (UnknownHostException e) {
+	    }
+
+
+	}
+	catch ( EOFException e ) {
+	    return;
+        }
+	catch ( UnknownHostException e ) {
 	    System.err.println("Don't know about host " + server);
 	    System.exit(1);
         }
-	catch (IOException e) {
+	catch ( IOException e ) {
             System.err.println("Couldn't get I/O for the connection to " + server);
             System.exit(1);
         }
+	catch( ClassNotFoundException e ) {
+	    e.printStackTrace();
+	    System.exit( -1 );
+	    
+	}
     }
 
     public void keyPressed(KeyEvent e){
