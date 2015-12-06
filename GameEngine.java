@@ -52,6 +52,11 @@ class GameEngine{
 		    p1Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p1right " + updatedX);
 		}
+		if (p1Position.getX() == CD.dimensions){
+		    int sameX = p1Position.getX();
+		    int sameY = p1Position.getY();
+		    p1Position.alterCoordinate(updatedX,sameY);	
+		}
 		break;
 	    case 1:
 		//p1 left
@@ -60,6 +65,13 @@ class GameEngine{
 		    int sameY = p1Position.getY();
 		    p1Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p1left " + updatedX);
+		}
+		if (p1Position.getX() == 0){
+		    int sameX = p1Position.getX();
+		    int sameY = p1Position.getY();
+		    p1Position.alterCoordinate(updatedX,sameY);	
+		    }
+		    
 		}
 		break;
 	    }
@@ -74,6 +86,11 @@ class GameEngine{
 		    p2Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p2right "  + updatedX);
 		}
+		if (p2Position.getX() == CD.dimensions){
+		    int sameX = p1Position.getX();
+		    int sameY = p1Position.getY();
+		    p1Position.alterCoordinate(updatedX,sameY);	
+		}
 		break;
 		//p2 left
 	    case 1:
@@ -82,8 +99,12 @@ class GameEngine{
 		    int sameY = p2Position.getY();
 		    p2Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p2left " + updatedX);
-
 		}
+		if (p2Position.getX() == 0){
+		    int sameX = p1Position.getX();
+		    int sameY = p1Position.getY();
+		    p1Position.alterCoordinate(updatedX,sameY);	
+		    }
 		break;
 	    }
 	}
