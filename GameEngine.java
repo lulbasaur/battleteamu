@@ -2,8 +2,16 @@ class GameEngine{
 
 
     CoordinateGrid CD;
-    Coordinate p1Position = new Coordinate(9,19);
-    Coordinate p2Position = new Coordinate(10,20);
+
+    Coordinate p1Position;
+    Coordinate p2Position;
+    Coordinate[] aliens;
+    int nextMove = 1; // 0 = left , 1 = right för alien
+
+
+    Coordinate p1Position = new Coordinate(5,5);
+    Coordinate p2Position = new Coordinate(7,7);
+
     
     Coordinate[] updateVector;
     
@@ -119,12 +127,87 @@ class GameEngine{
 	    updateVector[frontAlien].empty();
 	}	
     }
-    
-    //   public void moveAlien(){
-	
-    
 
-    /*
+
+    
+   public void moveAlien(int nextMove){
+       //looks if alien can move right. if not, move down
+
+
+	   boolean moveSideways = true;
+	   int maxLength = updateVector.length;
+	   int i;
+	   int j;
+
+       if (nextMove == 1) {
+	   
+
+	   for(i=2; i < maxLength && moveSideways == true; i++){
+	       if(updateVector[i].isAlien() && updateVector[i].getX() == CD.dimensions)
+	       moveSideways = false;
+	   }
+	   
+	   if (moveSideways == true)
+	       for (j=2; j < maxLength; j++){
+		   if(updateVector[j].isAlien()){
+		       int updatedX = updateVector[j].getX() + 1;
+		       int sameY = updateVector[j].getY();
+		       updateVector[j].alterCoordinate(updatedX,sameY);
+		       nextMove = 0;
+		   }
+		   
+	       }
+	   if(moveSideways == false){
+	       
+	   for(j=2; j < maxLength; j++){
+	       if(updateVector[j].isAlien()){
+		   int sameX = updateVector[j].getX();
+		   int updatedY = updateVector[j].getY() + 1;
+		   updateVector[j].alterCoordinate(sameX,updatedY);
+		   nextMove = 0;
+	       }
+	       
+	   }
+	   }
+       }
+       //looks if aliens can move left, if not move down
+
+       if (nextMove == 0) {
+	   for(i=2; i < maxLength && moveSideways == true; i++){
+	       if(updateVector[i].isAlien() && updateVector[i].getX() == 0)
+		   moveSideways = false;
+	   }
+	   
+	   if (moveSideways == true)
+	       for (j=2; j < maxLength; j++){
+		   if(updateVector[j].isAlien()){
+		       int updatedX = updateVector[j].getX() - 1;
+		       int sameY = updateVector[j].getY();
+		       updateVector[j].alterCoordinate(updatedX,sameY);
+		       nextMove = 1;
+		   }
+	       }
+
+	   if(moveSideways == false){
+	       for(j=2; j < maxLength; j++){
+		   if(updateVector[j].isAlien()){
+		       int sameX = updateVector[j].getX();
+		       int updatedY = updateVector[j].getY() + 1;
+		       updateVector[j].alterCoordinate(sameX,updatedY);
+		       nextMove = 1;
+		   }
+		   
+	       }
+	   }
+       }
+   }
+
+
+}
+       
+       
+       
+       /*
 
 fire metod:
 
@@ -139,4 +222,4 @@ finns det några alien i x led
      */
     
     
-}
+
