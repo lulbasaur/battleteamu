@@ -2,8 +2,8 @@ class GameEngine{
 
 
     CoordinateGrid CD;
-    Coordinate p1Position = new Coordinate(5,5);
-    Coordinate p2Position = new Coordinate(7,7);
+    Coordinate p1Position = new Coordinate(9,19);
+    Coordinate p2Position = new Coordinate(10,20);
     
     Coordinate[] updateVector;
     

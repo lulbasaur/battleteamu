@@ -30,6 +30,7 @@ class SocketClientDriver extends KeyAdapter{
     int ship2Y;
 
     Coordinate[] updatedArray;
+    ServerMessage sR;
     
     public SocketClientDriver(String server, int port) {
 	
@@ -64,15 +65,16 @@ class SocketClientDriver extends KeyAdapter{
 
 
 	    while(true){
-		Object serverRespons = (Object) inFromServer.readObject();
-		if( serverRespons instanceof ServerMessage ) {
-		    ServerMessage sR = (ServerMessage)serverRespons;
+		Object serverResponse = (Object) inFromServer.readObject();
+		if( serverResponse instanceof ServerMessage ) {
+		    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
 		}
 		/**
 		 här ska gui:n updateras
 		 */
-		
+		w.updateFrame(frame, updatedArray);
+
 	    }
 
 
@@ -102,21 +104,11 @@ class SocketClientDriver extends KeyAdapter{
 	    if(keys == KeyEvent.VK_A){
 		System.out.println("LEFT");
 		latestCommand = 0;
-		Coordinate c1 = new Coordinate(5, 5);
-		c1.ship1();
-		Coordinate c3 = new Coordinate(12, 12);
-		c3.ship1();
-	       
-		Coordinate[] cV = new Coordinate[2];
-		cV[0] = c1;
-		cV[1] = c3;
-		w.updateFrame(frame, cV);
 		outToServer.writeObject(latestCommand);
 	    }
 	    else if(keys == KeyEvent.VK_D){
 		System.out.println("RIGHT");
 		latestCommand = 1;
-		//ship1.move(w, frame, ++ship1X, ship1Y);
 		outToServer.writeObject(latestCommand);
 
 	    }

@@ -11,9 +11,11 @@ public class Player extends Thread{
     public final int playerNr;
     ObjectInputStream input = null;
     ObjectOutputStream output= null;
+    GameEngine GE;
 
-    public Player(Socket s, int n){
+    public Player(Socket s, int n, GameEngine GE){
 
+	this.GE = GE;
 	playerNr = n;
 	
 	
@@ -42,13 +44,18 @@ public class Player extends Thread{
 		    switch(choice){
 		    case 0:
 			System.out.println("Respons by player "+ playerNr +": " + pname + " LEFT");
+			GE.movePlayer(playerNr,1);
 			
 			break;
 		    case 1:
 			System.out.println("Respons by player "+ playerNr +": " + pname + " RIGHT");
+			GE.movePlayer(playerNr,0);
+
 			break;		  		    
 		    case 2:
 			System.out.println("Respons by player "+ playerNr +": " + pname + " FIRE");
+			GE.killAlien(playerNr);
+
 			break;
 		    default:
 		    break;

@@ -12,6 +12,8 @@ public class InvaderServer implements Runnable{
 	Player[] playerVector = new Player[2];
 	int serverPort = 2044;
 	ServerSocket serverSocket = null;
+	CoordinateGrid CG = new CoordinateGrid(20);
+	GameEngine GE = new GameEngine(CG);
 	
 	try {serverSocket = new ServerSocket(serverPort);}	
 	catch (IOException e) {
@@ -30,7 +32,7 @@ public class InvaderServer implements Runnable{
 		System.out.println("Got connection from player: " + (i+1));
 		
 		if(i < 2){
-		    playerVector[i] = new Player(s,i+1);	
+		    playerVector[i] = new Player(s,i+1,GE);	
 		}
 		playerVector[i++].start();
 			    
