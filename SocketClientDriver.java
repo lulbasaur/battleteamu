@@ -69,7 +69,6 @@ class SocketClientDriver extends KeyAdapter{
 		if( serverResponse instanceof ServerMessage ) {
 		    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
-		    System.out.println("kuk1");
 
 		    System.out.print("(PLAYER) p1X: " + updatedArray[0].getX());
 		    w.updateFrame(frame, updatedArray);
@@ -78,7 +77,6 @@ class SocketClientDriver extends KeyAdapter{
 		 här ska gui:n updateras
 		 */
 
-		System.out.println("kuk");
 
 	    }
 

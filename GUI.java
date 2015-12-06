@@ -131,11 +131,13 @@ public class GUI extends JPanel {
 	int alienNumber = c.getAlienNumber();
 	
 	this.alienArray[alienNumber].setIcon(new ImageIcon());
-	
-	this.alienArray[alienNumber] = new JLabel(new ImageIcon("graphics/alien.png"));
-	this.alienArray[alienNumber].setSize(30, 30);
-	this.alienArray[alienNumber].setLocation(x, y);
-	this.add(this.alienArray[alienNumber]);
+
+	if (c.isAlive()) {
+	    this.alienArray[alienNumber] = new JLabel(new ImageIcon("graphics/alien.png"));
+	    this.alienArray[alienNumber].setSize(30, 30);
+	    this.alienArray[alienNumber].setLocation(x, y);
+	    this.add(this.alienArray[alienNumber]);
+	}
 
 	frame.add(this);
 	frame.pack();

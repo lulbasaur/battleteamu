@@ -80,6 +80,8 @@ class Coordinate implements Serializable{
 
     public int getAlienNumber(){ return alienNumber; }
 
+    public boolean isAlive() { return alive; }
+
     public void shot() { alive = false; }
     
     public String returnSymbol(){
