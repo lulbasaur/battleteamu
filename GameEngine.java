@@ -2,10 +2,15 @@ class GameEngine{
 
 
     CoordinateGrid CD;
+
     Coordinate p1Position;
     Coordinate p2Position;
     Coordinate[] aliens;
     int nextMove = 1; // 0 = left , 1 = right för alien
+
+
+    Coordinate p1Position = new Coordinate(5,5);
+    Coordinate p2Position = new Coordinate(7,7);
 
     
     Coordinate[] updateVector;
@@ -17,13 +22,25 @@ class GameEngine{
 
     public void init(int x1,int y1,int x2,int y2, int alienNr){
 	p1Position.ship1();
-	p1Position.alterCoordinate(x1,y2); //startplats 7, 18
+	p1Position.alterCoordinate(x1,y1);
 
-	p1Position.ship2();
-	p2Position.alterCoordinate(x2,y2); //startplats  12,19
+	p2Position.ship2();
+	p2Position.alterCoordinate(x2,y2);
 	
-	aliens = new Coordinate[alienNr];
 	updateVector = new Coordinate[alienNr + 2];
+	
+	int len = updateVector.length;
+ 
+	updateVector[0] = p1Position;
+	updateVector[1] = p2Position;
+
+	int x = 3;
+	int y = 3;
+	
+	for(int i = 2 ; i < len; i++){
+	    updateVector[i] = new Coordinate(x++,y);
+	    updateVector[i].alien();		
+	}
     }
 
     public void movePlayer(int player, int rightleft){
