@@ -14,6 +14,9 @@ public class GUI extends JPanel {
     private JLabel ship2;
     private JLabel alien;
 
+    private Ship dummyShip1 = new Ship(1);
+    private Ship dummyShip2 = new Ship(2);
+
     private static final int EMPTY = 0;
     private static final int SHIP1 = 1;
     private static final int SHIP2 = 2;
@@ -28,10 +31,10 @@ public class GUI extends JPanel {
 		case EMPTY:  
 
 		    break;
-		case SHIP1:  moveShip1(frame, cV[c].getX(), cV[c].getY());
+		case SHIP1:  moveShip(frame, dummyShip1, cV[c].getX(), cV[c].getY());
 
 		    break;
-		case SHIP2:  moveShip2(frame, cV[c].getX(), cV[c].getY());
+		case SHIP2:  moveShip(frame, dummyShip2, cV[c].getX(), cV[c].getY());
 
 		    break;
 		case ALIEN:  moveAlien(frame, cV[c].getX(), cV[c].getY()); 
@@ -75,36 +78,37 @@ public class GUI extends JPanel {
 	alien.setLocation(x*30, y*30);
 	repaint();
     }
-    
-    public void placeShip1(JFrame frame) {
-	this.ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));
-	ship1.setSize(30, 30);
-	ship1.setLocation(300, 390); //x = 10, y = 13
-	this.add(ship1);
+
+    public void placeShip(JFrame frame, Ship ship) {
+	if (ship.getPlayerNr() == 1) {
+	    this.ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));
+	    ship1.setSize(30, 30);
+	    ship1.setLocation(300, 390);
+	    this.add(ship1);
+	    ship.setX(10);
+	    ship.setY(13);
+	}
+	else {
+	    this.ship2 = new JLabel(new ImageIcon("graphics/ship2.png"));
+	    ship2.setSize(30, 30);
+	    ship2.setLocation(270, 450); //x = 9, y = 15
+	    this.add(ship2);
+	    ship.setX(9);
+	    ship.setY(15);
+	}
 	frame.add(this);
 	frame.pack();
 	repaint();
 	frame.setVisible(true);
     }
 
-    public void placeShip2(JFrame frame) {
-	this.ship2 = new JLabel(new ImageIcon("graphics/ship2.png"));
-	ship2.setSize(30, 30);
-	ship2.setLocation(270, 450); //x = 9, y = 15
-	this.add(ship2);
-	frame.add(this);
-	frame.pack();
-	repaint();
-	frame.setVisible(true);
-    }
-
-    public void moveShip1(JFrame frame, int x, int y) {
-	ship1.setLocation(x*30, y*30);
-	repaint();
-    }
-
-    public void moveShip2(JFrame frame, int x, int y) {
-	ship2.setLocation(x*30, y*30);
+    public void moveShip(JFrame frame, Ship ship, int x, int y) {
+	if (ship.getPlayerNr() == 1) {
+	    ship1.setLocation(x*30, y*30);
+	}
+	else {
+	    ship2.setLocation(x*30, y*30);
+	}
 	repaint();
     }
 

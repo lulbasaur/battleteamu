@@ -17,30 +17,19 @@ class SocketClientDriver extends KeyAdapter{
     int latestCommand;
     ObjectInputStream inFromServer;
     ObjectOutputStream outToServer;
-
-    //ship1 & 2's koordinater vid spawn, för att slippa utgå från 0.
-    //Dessa löser problemet med att de hoppar upp, men ingen snygg lösning
-    int ship1X = 10;
-    int ship1Y = 13;
-    int ship2X = 9;
-    int ship2Y = 15;
-    
+  
     GUI w;
     JFrame frame;
     Ship ship1;
     Ship ship2;
     Alien alien1;
+
+    int ship1X;
+    int ship1Y;
+    int ship2X;
+    int ship2Y;
     
     public SocketClientDriver(String server, int port) {
-	
-        /*JFrame frame = new JFrame("testframe");
-	  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	  JPanel panel = new JPanel();
-	  panel.addKeyListener(this);
-	  frame.add(panel);
-	  frame.setSize(500, 500);
-	  frame.setVisible(true);
-	  panel.requestFocusInWindow();*/
 	
 	frame = new JFrame();
 	frame.setPreferredSize(new Dimension(600,600));
@@ -57,6 +46,11 @@ class SocketClientDriver extends KeyAdapter{
 	ship1 = new Ship(w, frame, 1);
         ship2 = new Ship(w, frame, 2);
 	alien1 = new Alien(w, frame);
+
+	ship1X = ship1.getX();
+	ship1Y = ship1.getY();
+	ship2X = ship2.getX();
+	ship2Y = ship2.getY();
 	
 	try {
 	    Socket socket1 = new Socket(server, port);
