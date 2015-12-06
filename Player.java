@@ -62,6 +62,7 @@ public class Player extends Thread{
 		    }
 		    pname = -1;
 		}
+		output.writeObject(new ServerMessage(GE.updateVector));
 	    }
 	    catch( EOFException e ) {
 		return;
