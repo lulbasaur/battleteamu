@@ -12,11 +12,10 @@ public class GUI extends JPanel {
     private Image bg;
     private JLabel ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));
     private JLabel ship2 = new JLabel(new ImageIcon("graphics/ship2.png"));
-    //private JLabel alien;
 
-    //private Ship dummyShip1 = new Ship(1);
-    //private Ship dummyShip2 = new Ship(2);
-
+    private JLabel lazerShip1 = new JLabel(new ImageIcon("graphics/lazer.png"));
+    private JLabel lazerShip2 = new JLabel(new ImageIcon("graphics/lazer.png"));
+    
     private int numberOfAliens = 20;
 
     private JLabel[] alienArray = generateAliens(numberOfAliens);
@@ -149,10 +148,20 @@ public class GUI extends JPanel {
 	int x = c.getX() * 30;
 	int y = c.getY() * 30;
 
-	JLabel lazer = new JLabel(new ImageIcon("graphics/lazer.png"));
-	lazer.setSize(30, 30);
-	lazer.setLocation(x, y);
-	this.add(lazer);
+	if (c.isLazer1()) {
+	    this.lazerShip1.setIcon(new ImageIcon());
+	    this.lazerShip1 = new JLabel(new ImageIcon("graphics/lazer.png"));
+	    lazerShip1.setSize(30, 30);
+	    lazerShip1.setLocation(x, y);
+	    this.add(lazerShip1);
+	}
+	else {
+	    this.lazerShip2.setIcon(new ImageIcon());
+	    this.lazerShip2 = new JLabel(new ImageIcon("graphics/lazer.png"));
+	    lazerShip2.setSize(30, 30);
+	    lazerShip2.setLocation(x, y);
+	    this.add(lazerShip2);
+	}
 
 	frame.add(this);
 	frame.pack();
@@ -163,80 +172,4 @@ public class GUI extends JPanel {
     public void paintComponent(Graphics g) {
     	g.drawImage(bg, 0, 0, null);
     }
-    
-    /*
-      public void placeAliens(JFrame frame, int width, int height) {
-      width = width * 30;
-      height = height * 30;
-      int cX = 0;
-      int cY = 0;
-      int positionX = 0;
-      int positionY = 0;
-
-      while (positionX < width) {
-      while (positionY < height) {
-      JLabel alien;
-      alien = new JLabel(new ImageIcon("graphics/alien.png"));
-      alien.setSize(30, 30);
-      alien.setLocation(positionX, positionY);
-      this.add(alien);
-      cY++;
-      positionY = 30 * cY;
-      }
-      cY = 0;
-      positionY = 0;
-      cX++;
-      positionX = 30 * cX;
-      }
-
-      frame.add(this);
-      frame.pack();
-      repaint();
-      frame.setVisible(true);
-      }
-    */
-
-    /*
-    public void moveAlien(JFrame frame, int x, int y) {
-	alien.setLocation(x*30, y*30);
-	repaint();
-    }
-    */
-
-    /*
-      public void placeShip(JFrame frame, Ship ship) {
-      if (ship.getPlayerNr() == 1) {
-      this.ship1 = new JLabel(new ImageIcon("graphics/ship1.png"));
-      ship1.setSize(30, 30);
-      ship1.setLocation(300, 390);
-      this.add(ship1);
-      ship.setX(10);
-      ship.setY(13);
-      }
-      else {
-      this.ship2 = new JLabel(new ImageIcon("graphics/ship2.png"));
-      ship2.setSize(30, 30);
-      ship2.setLocation(270, 450); //x = 9, y = 15
-      this.add(ship2);
-      ship.setX(9);
-      ship.setY(15);
-      }
-      frame.add(this);
-      frame.pack();
-      repaint();
-      frame.setVisible(true);
-      }
-    */
-
-    /*
-      public void moveShip(JFrame frame, Ship ship, int x, int y) {
-      if (ship.getPlayerNr() == 1) {
-      ship1.setLocation(x*30, y*30);
-      }
-      else {
-      ship2.setLocation(x*30, y*30);
-      }
-      repaint();
-      }
-    */
 }

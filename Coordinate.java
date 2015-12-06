@@ -7,7 +7,8 @@ class Coordinate implements Serializable{
     private boolean ship1;
     private boolean ship2;
     private boolean alien;
-    private boolean lazer;
+    private boolean lazer1;
+    private boolean lazer2;
     private boolean empty;
     private boolean alive;
 
@@ -32,7 +33,8 @@ class Coordinate implements Serializable{
 	this.ship1 = true;
 	this.ship2 = false;
 	this.alien = false;
-	this.lazer = false;
+	this.lazer1 = true;
+	this.lazer2 = false;
 	this.empty = false;
     }   
     public void ship2(){
@@ -40,7 +42,8 @@ class Coordinate implements Serializable{
 	this.ship1 = false;
 	this.ship2 = true;
 	this.alien = false;
-	this.lazer = false;
+	this.lazer1 = true;
+	this.lazer2 = false;
 	this.empty = false;
     }   
     public void alien(int number){
@@ -49,16 +52,18 @@ class Coordinate implements Serializable{
 	this.ship1 = false; 
 	this.ship2 = false;
 	this.alien = true;
-	this.lazer = false;
+	this.lazer1 = true;
+	this.lazer2 = false;
 	this.empty = false;
 	this.alive = true;
     }
-    public void lazer(){
+    public void lazer1(){
 	objectType = 4;
 	this.ship1 = false; 
 	this.ship2 = false;
 	this.alien = false;
-	this.lazer = true;
+	this.lazer1 = true;
+	this.lazer2 = false;
 	this.empty = false;
     }
     public void empty(){
@@ -66,14 +71,16 @@ class Coordinate implements Serializable{
 	this.ship1 = false; 
 	this.ship2 = false;
 	this.alien = false;
-	this.lazer = false;
+	this.lazer1 = true;
+	this.lazer2 = false;
 	this.empty = true;
     }
 
     public boolean isShip1(){ return ship1; }
     public boolean isShip2(){ return ship2; }
     public boolean isAlien(){ return alien; }
-    public boolean isLazer(){ return lazer; }
+    public boolean isLazer1(){ return lazer1; }
+    public boolean isLazer2(){ return lazer2; }
     public boolean isEmpty(){ return empty; }
 
     public int getObjectType(){ return objectType; }
@@ -95,7 +102,7 @@ class Coordinate implements Serializable{
 	else if(this.alien){
 	    return " A ";
 	}
-	else if(this.lazer){
+	else if(this.lazer1 || this.lazer2){
 	    return " | ";
 	}
 	else{
