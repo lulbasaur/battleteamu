@@ -9,6 +9,7 @@ class Coordinate{
     private boolean empty;
 
     private int objectType;
+    private int alienNumber;
     
     public Coordinate(int x, int y){
 	this.x = x;
@@ -56,7 +57,7 @@ class Coordinate{
 	this.empty = false;
     }
     public void empty(){
-	objectType = 5;
+	objectType = 0;
 	this.ship1 = false; 
 	this.ship2 = false;
 	this.alien = false;

@@ -8,13 +8,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+/*
 class Alien {
 
     private int xCoord = 0;
     private int yCoord = 0;
 
     Alien(GUI g, JFrame frame) {
-	g.placeAliens(frame, 6, 4);
+   
     }
 
     public void move(GUI g, JFrame frame, int x, int y) {
@@ -32,3 +33,4 @@ class Alien {
     public int getY() { return yCoord; }
     
 }
+*/

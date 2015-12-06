@@ -17,17 +17,21 @@ class Ship {
     Ship(int player){
 	this.player = player;
     }
-    
+
+    /*
     Ship(GUI g, JFrame frame, int player){
 	this.player = player;
         g.placeShip(frame, this);
     }
+    */
 
+    /*
     public void move(GUI g, JFrame frame, int x, int y) {
         g.moveShip(frame, this, x, y);
 	this.xCoord = x;
 	this.yCoord = y;
     }
+    */
 
     public int getPlayerNr() { return player; }
 
