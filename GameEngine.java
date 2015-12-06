@@ -99,9 +99,10 @@ class GameEngine{
 
     public void killAlien(int player){
 	int frontAlien = -1;
+	int maxLength = updateVector.length - 2; 
 	if (player == 1){   //kolla om player 1 dödar en alien
 	    int xAxis = p1Position.getX();
-	    int maxLength = updateVector.length - 1; 
+	  
 	    int i = 2;
 	   
 	    while(i < maxLength){
@@ -112,12 +113,17 @@ class GameEngine{
 		}
 		i++;
 	    }
-	    updateVector[frontAlien].empty();
-	}		    	    
+	    
+	    if(frontAlien != -1 ){
+  updateVector[frontAlien].shot();
+	    }
+	    
+	}		  
+  	    
 	if (player == 2){  //kolla om player 2 dödar en alien
 	    int xAxis = p1Position.getX();
 	    // int yAxis = (CD.dimensions - 2);
-	    int maxLength = updateVector.length; /// kolla upp det
+
 	    int i = 2;
 	
 	    while(i < maxLength){
@@ -128,7 +134,9 @@ class GameEngine{
 		}
 		i++;
 	    }
-	    updateVector[frontAlien].empty();
+	    if(frontAlien != -1 ){
+  updateVector[frontAlien].shot();
+	    }
 	}	
     }
 

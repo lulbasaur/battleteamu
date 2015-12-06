@@ -9,6 +9,7 @@ class Coordinate implements Serializable{
     private boolean alien;
     private boolean lazer;
     private boolean empty;
+    private boolean alive;
 
     private int objectType;
     private int alienNumber;
@@ -50,6 +51,7 @@ class Coordinate implements Serializable{
 	this.alien = true;
 	this.lazer = false;
 	this.empty = false;
+	this.alive = true;
     }
     public void lazer(){
 	objectType = 4;
@@ -77,6 +79,8 @@ class Coordinate implements Serializable{
     public int getObjectType(){ return objectType; }
 
     public int getAlienNumber(){ return alienNumber; }
+
+    public void shot() { alive = false; }
     
     public String returnSymbol(){
 
