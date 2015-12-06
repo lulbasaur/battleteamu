@@ -46,32 +46,36 @@ class GameEngine{
 	    switch(rightleft){
 	    case 0:
 		//p1 right
-		if(p1Position.getX() < CD.dimensions && p1Position.getX() > 1){
+		if(p1Position.getX() < CD.dimensions -1 && p1Position.getX() >= 0){
 		    int updatedX = p1Position.getX() + 1;
 		    int sameY = p1Position.getY();
 		    p1Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p1right " + updatedX);
 		}
-			else {
-		    int sameX = p1Position.getX();
+
+
+		else{
+		    int sameX = CD.dimensions-1;
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(sameX,sameY);	
-		    }
+		    p1Position.alterCoordinate(sameX,sameY);
+		}
 		break;
 	    case 1:
 		//p1 left
-		if(p1Position.getX() < CD.dimensions && p1Position.getX() > 1){
+		if(p1Position.getX() < CD.dimensions && p1Position.getX() > 0){
 		    int updatedX = p1Position.getX() - 1;
 		    int sameY = p1Position.getY();
 		    p1Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p1left " + updatedX);
 		}
-		else {
-		    int sameX = p1Position.getX();
+	
+		else{
+		    int sameX = 0;
 		    int sameY = p1Position.getY();
-		    p1Position.alterCoordinate(sameX,sameY);	
-		    }
-		    
+		    p1Position.alterCoordinate(sameX,sameY);
+		}
+	      
+	    	    
 	    
 		break;
 	    }
@@ -81,29 +85,29 @@ class GameEngine{
 	    switch(rightleft){
 		//p2 right
 	    case 0:
-		if(p2Position.getX() < CD.dimensions && p2Position.getX() > 1){
+		if(p2Position.getX() < CD.dimensions -1 && p2Position.getX() >= 0){
 		    int updatedX = p2Position.getX() + 1;
 		    int sameY = p2Position.getY();
 		    p2Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p2right "  + updatedX);
 		}
 		else{
-		    int sameX = p1Position.getX();
-		    int sameY = p1Position.getY();
+		    int sameX = CD.dimensions-1;
+		    int sameY = p2Position.getY();
 		    p1Position.alterCoordinate(sameX,sameY);	
 		    }
 		break;
 		//p2 left
 	    case 1:
-		if(p2Position.getX() < CD.dimensions && p2Position.getX() > 1){
+		if(p2Position.getX() < CD.dimensions && p2Position.getX() > 0){
 		    int updatedX = p2Position.getX() - 1;
 		    int sameY = p2Position.getY();
 		    p2Position.alterCoordinate(updatedX,sameY);
 		    System.out.println("p2left " + updatedX);
 		}
 	        else{
-		    int sameX = p1Position.getX();
-		    int sameY = p1Position.getY();
+		    int sameX = 0;
+		    int sameY = p2Position.getY();
 		    p1Position.alterCoordinate(sameX,sameY);	
 		    }
 		break;
