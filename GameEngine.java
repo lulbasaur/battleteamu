@@ -50,6 +50,7 @@ class GameEngine{
 		    int updatedX = p1Position.getX() + 1;
 		    int sameY = p1Position.getY();
 		    p1Position.alterCoordinate(updatedX,sameY);
+		    System.out.println("p1right " + updatedX);
 		}
 		break;
 	    case 1:
@@ -58,6 +59,7 @@ class GameEngine{
 		    int updatedX = p1Position.getX() - 1;
 		    int sameY = p1Position.getY();
 		    p1Position.alterCoordinate(updatedX,sameY);
+		    System.out.println("p1left " + updatedX);
 		}
 		break;
 	    }
@@ -70,6 +72,7 @@ class GameEngine{
 		    int updatedX = p2Position.getX() + 1;
 		    int sameY = p2Position.getY();
 		    p2Position.alterCoordinate(updatedX,sameY);
+		    System.out.println("p2right "  + updatedX);
 		}
 		break;
 		//p2 left
@@ -78,6 +81,8 @@ class GameEngine{
 		    int updatedX = p2Position.getX() - 1;
 		    int sameY = p2Position.getY();
 		    p2Position.alterCoordinate(updatedX,sameY);
+		    System.out.println("p2left " + updatedX);
+
 		}
 		break;
 	    }
@@ -86,8 +91,9 @@ class GameEngine{
     }
 
     public Coordinate[] returnUpdateVector(){
-	Coordinate[] uV = updateVector.clone();
-	return uV;
+	/*	Coordinate[] uV = updateVector.clone();
+		return uV;*/
+	return updateVector;
     }
     
 

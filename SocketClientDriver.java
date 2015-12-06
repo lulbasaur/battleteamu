@@ -71,11 +71,13 @@ class SocketClientDriver extends KeyAdapter{
 		    updatedArray = sR.getArray();
 		    System.out.println("kuk1");
 
+		    System.out.print("(PLAYER) p1X: " + updatedArray[0].getX());
+		    w.updateFrame(frame, updatedArray);
 		}
 		/**
 		 här ska gui:n updateras
 		 */
-		w.updateFrame(frame, updatedArray);
+
 		System.out.println("kuk");
 
 	    }
@@ -92,6 +94,7 @@ class SocketClientDriver extends KeyAdapter{
 	catch ( IOException e ) {
             System.err.println("Couldn't get I/O for the connection to " + server);
             System.exit(1);
+		
         }
 	catch( ClassNotFoundException e ) {
 	    e.printStackTrace();

@@ -63,8 +63,11 @@ public class Player extends Thread{
 		    }
 		    pname = -1;
 		}
+		System.out.print("(PLAYER) p1X: " + GE.updateVector[0].getX());
 		messageToClient = new ServerMessage(GE.updateVector);
 		output.writeObject(messageToClient);
+		output.reset();   
+
 	    }
 	    catch( EOFException e ) {
 		return;
