@@ -1,15 +1,12 @@
 class GameEngine{
 
-
     CoordinateGrid CD;
 
     Coordinate[] aliens;
     int nextMove = 1; // 0 = left , 1 = right för alien
 
-
     Coordinate p1Position = new Coordinate(5,5);
     Coordinate p2Position = new Coordinate(7,7);
-
     
     Coordinate[] updateVector;
     
@@ -132,10 +129,9 @@ class GameEngine{
 		i++;
 	    }
 	    
-	    if(frontAlien != -1 ){
+	    if(frontAlien != -1){
 		updateVector[frontAlien].shot();
-	    }
-	    
+	    } 
 	}		  
   	    
 	if (player == 2){  //kolla om player 2 dödar en alien
