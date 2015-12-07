@@ -37,8 +37,9 @@ public class GUIThread extends Thread{
 		    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
 		    System.out.print("(GUITHREAD) p1X: " + updatedArray[0].getX());
+		    gui.updateFrame(frame, updatedArray);
+
 		}
-		gui.updateFrame(frame, updatedArray);
 	    }
 	}	
 	    
