@@ -63,8 +63,8 @@ class SocketClientDriver extends KeyAdapter{
 	    /**
 	       obs
 	    */
-	    GUIThread guit = new GUIThread(inFromServer,w,frame);
-	    guit.start();
+	    //GUIThread guit = new GUIThread(inFromServer,w,frame);
+	    //guit.start();
 	    
 	    while(true){
 		Object serverResponse = (Object) inFromServer.readObject();

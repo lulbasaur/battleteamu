@@ -27,8 +27,8 @@ public class Player extends Thread{
 					   s.getOutputStream() );
 	    System.out.println("Player: " + playerNr + " connected!");
 	    /**obs*/
-	    PlayerThread p = new PlayerThread(output,GE);
-	    p.start();
+	    //PlayerThread p = new PlayerThread(output,GE);
+	    //p.start();
 	}
 	catch( IOException e ) {
 	    e.printStackTrace();
