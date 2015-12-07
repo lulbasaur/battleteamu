@@ -17,7 +17,8 @@ CLASSES = \
 	SocketClientDriver.java \
 	Alien.java \
 	Ship.java \
-	GUIThread.java			
+	GUIThread.java \			
+	Ship.java
 	
 default: classes
 
