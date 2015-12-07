@@ -135,7 +135,7 @@ class GameEngine{
 	}		  
   	    
 	if (player == 2){  //kolla om player 2 dödar en alien
-	    int xAxis = p1Position.getX();
+	    int xAxis = p2Position.getX();
 	    // int yAxis = (CD.dimensions - 2);
 	    int i = 2;
 	
