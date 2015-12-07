@@ -7,7 +7,18 @@ JC = javac
 CLASSES = \
 	Coordinate.java \
 	CoordinateGrid.java \
-	Battle.java
+	GameEngine.java \
+	GUI.java \
+	InvaderServer.java \
+	Player.java \
+	PlayerThread.java \
+	ServerMessage.java \
+	SocketClient.java \
+	SocketClientDriver.java \
+	Alien.java \
+	Ship.java \
+	GUIThread.java			
+	
 default: classes
 
 classes: $(CLASSES:.java=.class)

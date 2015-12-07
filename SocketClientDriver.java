@@ -45,10 +45,8 @@ class SocketClientDriver extends KeyAdapter{
 	w.drawBackground(frame);
 	frame.setVisible(true);
 
- 
 	ship1 = new Ship(1);
         ship2 = new Ship(2);
-	//alien1 = new Alien(w, frame);
 
 	ship1X = ship1.getX();
 	ship1Y = ship1.getY();
@@ -62,8 +60,10 @@ class SocketClientDriver extends KeyAdapter{
 	    outToServer = new ObjectOutputStream(socket1.getOutputStream());
 	     
 	    inFromServer = new ObjectInputStream(socket1.getInputStream());
-
-
+	    /**
+	       obs
+	    */
+	    GUIThread guit = new GUIThread(inFromServer,w,frame);
 	    while(true){
 		Object serverResponse = (Object) inFromServer.readObject();
 		if( serverResponse instanceof ServerMessage ) {
