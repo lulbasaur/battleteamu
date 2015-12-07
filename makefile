@@ -18,13 +18,10 @@ CLASSES = \
 	Alien.java \
 	Ship.java \
 	GUIThread.java \			
-	Ship.java
-	
-default: classes
-
-classes: $(CLASSES:.java=.class)
-
-clean:
+	Ship.java \ 
+classes: 
+	$(CLASSES:.java=.class)
+default: 
+	classes
+clean: 
 	$(RM) *.class
-run:
-	java Battle
