@@ -58,9 +58,13 @@ public class GUIThread extends Thread{
 	    System.exit( -1 );
 	    }*/
 	while(true){
-	    gui.updateFrame(frame, updatedArray);
-	    System.out.println("(GUITHREAD)");
 
+	    try {
+		Thread.sleep(500);    
+	    } catch(InterruptedException ex) {
+		Thread.currentThread().interrupt();
+	    }
+	    gui.updateFrame(frame, updatedArray);
 	}
     }
 }
