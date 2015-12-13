@@ -39,26 +39,28 @@ public class GUI extends JPanel {
     
     public void updateFrame(JFrame frame, Coordinate[] cV) {
 	int c = 0;
-	while (c < cV.length) {
-	    switch (cV[c].getObjectType())
-		{
-		case EMPTY:  drawEmpty(frame, cV[c]);
+	if (cV != null) {
+	    while (c < cV.length) {
+		switch (cV[c].getObjectType())
+		    {
+		    case EMPTY:  drawEmpty(frame, cV[c]);
 
-		    break;
-		case SHIP1:  drawShip1(frame, cV[c]);
+			break;
+		    case SHIP1:  drawShip1(frame, cV[c]);
 
-		    break;
-		case SHIP2:  drawShip2(frame, cV[c]);
+			break;
+		    case SHIP2:  drawShip2(frame, cV[c]);
 
-		    break;
-		case ALIEN:  drawAlien(frame, cV[c]); 
+			break;
+		    case ALIEN:  drawAlien(frame, cV[c]); 
 
-		    break;
-		case LAZER:  drawLazer(frame, cV[c]);
+			break;
+		    case LAZER:  drawLazer(frame, cV[c]);
 
-		    break;
-		}   
-	    c++;
+			break;
+		    }   
+		c++;
+	    }
 	}
     }
 
