@@ -66,17 +66,21 @@ class SocketClientDriver extends KeyAdapter{
 	    GUIThread guit = new GUIThread(inFromServer,w,frame);
 	    guit.start();
 	    while(true){
+		
 		w.updateFrame(frame, updatedArray);
+		if(updatedArray != null){
+		    System.out.print("(SCD) p1X: " + updatedArray[0].getX());
+		    System.out.print("(SCD) p2X: " + updatedArray[1].getX());
+		}
 				    
 		Object serverResponse = (Object) inFromServer.readObject();
 		if( serverResponse instanceof ServerMessage ) {
 		    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
-		    System.out.print("(PLAYER) p1X: " + updatedArray[0].getX());
+		    System.out.print("(SCD2) p1X: " + updatedArray[0].getX());
+		    System.out.print("(SCD2) p2X: " + updatedArray[0].getX());
+
 		}
-		/**
-		   här ska gui:n updateras
-		 */
 	    }
 	}
 	catch ( EOFException e ) {
