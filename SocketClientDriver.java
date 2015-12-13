@@ -64,8 +64,6 @@ class SocketClientDriver extends KeyAdapter{
 	    */
 	    GUIThread guit = new GUIThread(inFromServer,w,frame);
 	    guit.start();
-	    guit.run();
-
 	}
 	catch ( UnknownHostException e ) {
 	    System.err.println("Don't know about host " + server);
