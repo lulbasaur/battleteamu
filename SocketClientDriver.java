@@ -65,11 +65,9 @@ class SocketClientDriver extends KeyAdapter{
 	    */
 	    //GUIThread guit = new GUIThread(inFromServer,w,frame);
 	    //guit.start();
-	    
+	    int once = 0;
 	    while(true){
-		if(updatedArray != null){
-		    w.updateFrame(frame, updatedArray);
-		}
+		w.updateFrame(frame, updatedArray);
 		
 		Object serverResponse = (Object) inFromServer.readObject();
 		if( serverResponse instanceof ServerMessage ) {
