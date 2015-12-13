@@ -67,7 +67,7 @@ class SocketClientDriver extends KeyAdapter{
 	    //guit.start();
 	    while(true){
 		w.updateFrame(frame, updatedArray);
-		System.out.print("fuck: " + updatedArray[0].getX());
+		System.out.print("fuck: ");
 				    
 		Object serverResponse = (Object) inFromServer.readObject();
 		if( serverResponse instanceof ServerMessage ) {
