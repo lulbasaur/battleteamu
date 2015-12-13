@@ -67,17 +67,21 @@ class SocketClientDriver extends KeyAdapter{
 	    //guit.start();
 	    
 	    while(true){
+		if(updatedArray != null){
+		    w.updateFrame(frame, updatedArray);
+		}
+		
 		Object serverResponse = (Object) inFromServer.readObject();
 		if( serverResponse instanceof ServerMessage ) {
 		    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
 
 		    System.out.print("(PLAYER) p1X: " + updatedArray[0].getX());
+
 		}
 		/**
 		 här ska gui:n updateras
 		 */
-		w.updateFrame(frame, updatedArray);
 
 
 

@@ -34,8 +34,8 @@ public class InvaderServer implements Runnable{
 		
 		if(i < 2){
 		    playerVector[i] = new Player(s,i+1,GE);	
+		    playerVector[i++].start();
 		}
-		playerVector[i++].start();
 			    
 	    }
 	    catch (IOException e) {
@@ -48,7 +48,7 @@ public class InvaderServer implements Runnable{
     }
 
     public void run(){
-	
+	System.out.println("End");
 	System.exit(-1);
     }
 
