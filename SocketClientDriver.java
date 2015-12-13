@@ -67,7 +67,6 @@ class SocketClientDriver extends KeyAdapter{
 	    //guit.start();
 	    while(true){
 		w.updateFrame(frame, updatedArray);
-		System.out.print("fuck: ");
 				    
 		Object serverResponse = (Object) inFromServer.readObject();
 		if( serverResponse instanceof ServerMessage ) {
@@ -103,7 +102,8 @@ class SocketClientDriver extends KeyAdapter{
 
     public void keyPressed(KeyEvent e){
 	try{
-	
+	    w.updateFrame(frame, updatedArray);
+
 	    int keys = e.getKeyCode();
 	    if(keys == KeyEvent.VK_A){
 		System.out.println("LEFT");
