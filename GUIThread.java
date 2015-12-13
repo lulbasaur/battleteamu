@@ -30,9 +30,9 @@ public class GUIThread extends Thread{
     }
     public void run(){
 	
-	try{
+	/**	try{
 	    while(true){
-		/**Object serverResponse = (Object) input.readObject();
+		Object serverResponse = (Object) input.readObject();
 		if( serverResponse instanceof ServerMessage ) {
 		    	    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
@@ -40,7 +40,7 @@ public class GUIThread extends Thread{
 		    
 		    gui.updateFrame(frame, updatedArray);
 		    
-		}*/
+		}
 		gui.updateFrame(frame, updatedArray);
 				    
 	    }
@@ -56,6 +56,9 @@ public class GUIThread extends Thread{
 	catch( ClassNotFoundException e ) {
 	    e.printStackTrace();
 	    System.exit( -1 );
+	    }*/
+	while(true){
+	    gui.updateFrame(frame, updatedArray);
 	}
     }
 }
