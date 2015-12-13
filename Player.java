@@ -40,6 +40,12 @@ public class Player extends Thread{
 	while(true){
 	    try{
 		Object pname = (Object) input.readObject();
+
+		System.out.print("(PLAYER) p1 X: " + GE.updateVector[0].getX());
+		messageToClient = new ServerMessage(GE.updateVector);
+		output.writeObject(messageToClient);
+		output.reset();
+		
 		if( pname instanceof String) {
 		    System.out.println("Respons by player "+ playerNr +": " + pname);
 		}
@@ -66,11 +72,12 @@ public class Player extends Thread{
 		    }
 		    pname = -1;
 		}
-		System.out.print("(PLAYER) p1X: " + GE.updateVector[0].getX());
+		/**
+		System.out.print("(PLAYER) p1 X: " + GE.updateVector[0].getX());
 		messageToClient = new ServerMessage(GE.updateVector);
 		output.writeObject(messageToClient);
 		output.reset();   
-
+		*/
 	    }
 	    catch( EOFException e ) {
 		return;
