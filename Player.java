@@ -44,6 +44,14 @@ public class Player extends Thread{
 		messageToClient = new ServerMessage(GE.updateVector);
 		output.writeObject(messageToClient);
 		output.reset();
+	    }
+	    catch( IOException e ) {
+		e.printStackTrace();
+		System.exit( -1 );
+	    }
+	    
+	    try{
+
 		
 		Object pname = (Object) input.readObject();
 
