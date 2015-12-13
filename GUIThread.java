@@ -32,14 +32,17 @@ public class GUIThread extends Thread{
 	
 	try{
 	    while(true){
-		Object serverResponse = (Object) input.readObject();
+		/**Object serverResponse = (Object) input.readObject();
 		if( serverResponse instanceof ServerMessage ) {
-		    sR = (ServerMessage)serverResponse;
+		    	    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
 		    System.out.print("(GUITHREAD) p1X: " + updatedArray[0].getX());
+		    
 		    gui.updateFrame(frame, updatedArray);
-
-		}
+		    
+		}*/
+		gui.updateFrame(frame, updatedArray);
+				    
 	    }
 	}	
 	    
