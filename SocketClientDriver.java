@@ -62,8 +62,8 @@ class SocketClientDriver extends KeyAdapter{
 	    /**
 	       obs
 	    */
-	    GUIThread guit = new GUIThread(inFromServer,w,frame);
-	    guit.start();
+	    // GUIThread guit = new GUIThread(inFromServer,w,frame);
+	    //guit.start();
 	}
 	catch ( UnknownHostException e ) {
 	    System.err.println("Don't know about host " + server);
