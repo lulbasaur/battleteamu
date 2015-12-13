@@ -59,6 +59,8 @@ public class GUIThread extends Thread{
 	    }*/
 	while(true){
 	    gui.updateFrame(frame, updatedArray);
+	    System.out.println("(GUITHREAD)");
+
 	}
     }
 }

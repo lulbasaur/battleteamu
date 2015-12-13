@@ -54,9 +54,6 @@ public class Player extends Thread{
 		
 		Object pname = (Object) input.readObject();
 		
-		if( pname instanceof String) {
-		    System.out.println("Respons by player "+ playerNr +": " + pname);
-		}
 		if(pname instanceof Integer) {
 		    int choice = (int)pname; 
 		    switch(choice){
