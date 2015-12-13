@@ -93,7 +93,6 @@ class SocketClientDriver extends KeyAdapter{
 	    }
 	    catch ( EOFException e ) {
 		w.updateFrame(frame, updatedArray);
-
 		return;
 	    }
 	    catch ( UnknownHostException e ) {
@@ -102,7 +101,7 @@ class SocketClientDriver extends KeyAdapter{
 	    }
 	    catch ( IOException e ) {
 		System.err.println("Couldn't get I/O for the connection to " + server);
-		System.exit(1);
+		//System.exit(1);
 		
 	    }
 	    catch( ClassNotFoundException e ) {
