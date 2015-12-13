@@ -22,7 +22,6 @@ class SocketClientDriver extends KeyAdapter{
     JFrame frame;
     Ship ship1;
     Ship ship2;
-    //Alien alien1;
 
     int ship1X;
     int ship1Y;
