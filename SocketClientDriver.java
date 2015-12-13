@@ -63,8 +63,8 @@ class SocketClientDriver extends KeyAdapter{
 	    /**
 	       obs
 	    */
-	    //GUIThread guit = new GUIThread(inFromServer,w,frame);
-	    //guit.start();
+	    GUIThread guit = new GUIThread(inFromServer,w,frame);
+	    guit.start();
 	    while(true){
 		w.updateFrame(frame, updatedArray);
 				    
@@ -102,7 +102,6 @@ class SocketClientDriver extends KeyAdapter{
 
     public void keyPressed(KeyEvent e){
 	try{
-	    w.updateFrame(frame, updatedArray);
 
 	    int keys = e.getKeyCode();
 	    if(keys == KeyEvent.VK_A){
