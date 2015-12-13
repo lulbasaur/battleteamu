@@ -78,7 +78,7 @@ class SocketClientDriver extends KeyAdapter{
 		    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
 		    System.out.print("(SCD2) p1X: " + updatedArray[0].getX());
-		    System.out.print("(SCD2) p2X: " + updatedArray[0].getX());
+		    System.out.print("(SCD2) p2X: " + updatedArray[1].getX());
 
 		}
 	    }
