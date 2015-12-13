@@ -53,7 +53,7 @@ class SocketClientDriver extends KeyAdapter{
 	ship2X = ship2.getX();
 	ship2Y = ship2.getY();
 
-	
+	while(true){	
 	try {
 	    Socket socket1 = new Socket(server, port);
 
@@ -65,23 +65,23 @@ class SocketClientDriver extends KeyAdapter{
 	    */
 	    GUIThread guit = new GUIThread(inFromServer,w,frame);
 	    guit.start();
-	    while(true){
+	    //while(true){
 		
 		w.updateFrame(frame, updatedArray);
 		if(updatedArray != null){
-		    System.out.print("(SCD) p1X: " + updatedArray[0].getX());
-		    System.out.print("(SCD) p2X: " + updatedArray[1].getX());
+		    System.out.println("(SCD) p1X: " + updatedArray[0].getX());
+		    System.out.println("(SCD) p2X: " + updatedArray[1].getX());
 		}
 				    
 		Object serverResponse = (Object) inFromServer.readObject();
 		if( serverResponse instanceof ServerMessage ) {
 		    sR = (ServerMessage)serverResponse;
 		    updatedArray = sR.getArray();
-		    System.out.print("(SCD2) p1X: " + updatedArray[0].getX());
-		    System.out.print("(SCD2) p2X: " + updatedArray[1].getX());
+		    System.out.println("(SCD2) p1X: " + updatedArray[0].getX());
+		    System.out.println("(SCD2) p2X: " + updatedArray[1].getX());
 
 		}
-	    }
+		//}
 	}
 	catch ( EOFException e ) {
 	    w.updateFrame(frame, updatedArray);
@@ -101,6 +101,7 @@ class SocketClientDriver extends KeyAdapter{
 	    e.printStackTrace();
 	    System.exit( -1 );
 	    
+	}
 	}
     }
 
