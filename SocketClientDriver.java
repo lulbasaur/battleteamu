@@ -53,7 +53,6 @@ class SocketClientDriver extends KeyAdapter{
 	ship2X = ship2.getX();
 	ship2Y = ship2.getY();
 
-	while(true){	
 	try {
 	    Socket socket1 = new Socket(server, port);
 
@@ -65,8 +64,21 @@ class SocketClientDriver extends KeyAdapter{
 	    */
 	    GUIThread guit = new GUIThread(inFromServer,w,frame);
 	    guit.start();
-	    //while(true){
-		
+
+	}
+	catch ( UnknownHostException e ) {
+	    System.err.println("Don't know about host " + server);
+	    System.exit(1);
+        }
+	catch ( IOException e ) {
+            System.err.println("Couldn't get I/O for the connection to " + server);
+            System.exit(1);
+        }
+
+	
+	while(true){
+
+	    try{
 		w.updateFrame(frame, updatedArray);
 		if(updatedArray != null){
 		    System.out.println("(SCD) p1X: " + updatedArray[0].getX());
@@ -79,29 +91,27 @@ class SocketClientDriver extends KeyAdapter{
 		    updatedArray = sR.getArray();
 		    System.out.println("(SCD2) p1X: " + updatedArray[0].getX());
 		    System.out.println("(SCD2) p2X: " + updatedArray[1].getX());
+		}	    
+	    }
+	    catch ( EOFException e ) {
+		w.updateFrame(frame, updatedArray);
 
-		}
-		//}
-	}
-	catch ( EOFException e ) {
-	    w.updateFrame(frame, updatedArray);
-
-	    return;
-        }
-	catch ( UnknownHostException e ) {
-	    System.err.println("Don't know about host " + server);
-	    System.exit(1);
-        }
-	catch ( IOException e ) {
-            System.err.println("Couldn't get I/O for the connection to " + server);
-            System.exit(1);
+		return;
+	    }
+	    catch ( UnknownHostException e ) {
+		System.err.println("Don't know about host " + server);
+		System.exit(1);
+	    }
+	    catch ( IOException e ) {
+		System.err.println("Couldn't get I/O for the connection to " + server);
+		System.exit(1);
 		
-        }
-	catch( ClassNotFoundException e ) {
-	    e.printStackTrace();
-	    System.exit( -1 );
+	    }
+	    catch( ClassNotFoundException e ) {
+		e.printStackTrace();
+		System.exit( -1 );
 	    
-	}
+	    }
 	}
     }
 
@@ -135,7 +145,7 @@ class SocketClientDriver extends KeyAdapter{
             System.err.println("Couldn't get I/O for the connection.");
             System.exit(1);
         }
-	
+    
 	
     }
 
