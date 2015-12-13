@@ -51,11 +51,8 @@ public class Player extends Thread{
 	    }
 	    
 	    try{
-
 		
 		Object pname = (Object) input.readObject();
-
-
 		
 		if( pname instanceof String) {
 		    System.out.println("Respons by player "+ playerNr +": " + pname);

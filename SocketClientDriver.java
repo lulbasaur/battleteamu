@@ -79,14 +79,11 @@ class SocketClientDriver extends KeyAdapter{
 		/**
 		 här ska gui:n updateras
 		 */
-
-
-
 	    }
-
-
 	}
 	catch ( EOFException e ) {
+	    w.updateFrame(frame, updatedArray);
+
 	    return;
         }
 	catch ( UnknownHostException e ) {
