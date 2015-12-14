@@ -63,20 +63,9 @@ class SocketClientDriver extends KeyAdapter{
 	    */
 	    // GUIThread guit = new GUIThread(inFromServer,w,frame);
 	    //guit.start();
-	}
-	catch ( UnknownHostException e ) {
-	    System.err.println("Don't know about host " + server);
-	    System.exit(1);
-        }
-	catch ( IOException e ) {
-            System.err.println("Couldn't get I/O for the connection to " + server);
-            System.exit(1);
-        }
-
 	
-	while(true){
+	    while(true){
 
-	    try{
 		w.updateFrame(frame, updatedArray);
 		if(updatedArray != null){
 		    System.out.println("(SCD) p1X: " + updatedArray[0].getX());
@@ -91,25 +80,25 @@ class SocketClientDriver extends KeyAdapter{
 		    System.out.println("(SCD2) p2X: " + updatedArray[1].getX());
 		}	    
 	    }
-	    catch ( EOFException e ) {
-		w.updateFrame(frame, updatedArray);
-		return;
-	    }
-	    catch ( UnknownHostException e ) {
-		System.err.println("Don't know about host " + server);
-		System.exit(-1);
-	    }
-	    catch ( IOException e ) {
-		System.err.println("Couldn't get I/O for the connection to " + server);
-		System.exit(-1);
-		
-	    }
-	    catch( ClassNotFoundException e ) {
-		e.printStackTrace();
-		System.exit( -1 );
-	    
-	    }
 	}
+	catch ( EOFException e ) {
+	    w.updateFrame(frame, updatedArray);
+	    return;
+	}
+	catch ( UnknownHostException e ) {
+	    System.err.println("Don't know about host " + server);
+	    System.exit(-1);
+	}
+	catch ( IOException e ) {
+	    System.err.println("Couldn't get I/O for the connection to " + server);
+	    System.exit(-1);
+		
+	}
+	catch( ClassNotFoundException e ) {
+	    e.printStackTrace();
+	    System.exit( -1 );
+	    
+	}	    
     }
 
     public void keyPressed(KeyEvent e){
