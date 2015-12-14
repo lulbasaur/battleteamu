@@ -80,6 +80,7 @@ class SocketClientDriver extends KeyAdapter{
 		    System.out.println("(SCD2) p2X: " + updatedArray[1].getX());
 		}	    
 	    }
+	    
 	}
 	catch ( EOFException e ) {
 	    w.updateFrame(frame, updatedArray);

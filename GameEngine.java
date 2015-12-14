@@ -113,7 +113,7 @@ class GameEngine{
     }
     
 
-    public void killAlien(int player){
+    synchronized public void killAlien(int player){
 	int frontAlien = -1;
 	int maxLength = updateVector.length; 
 	if (player == 1){   //kolla om player 1 dödar en alien
