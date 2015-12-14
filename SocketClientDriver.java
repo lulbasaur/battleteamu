@@ -97,11 +97,11 @@ class SocketClientDriver extends KeyAdapter{
 	    }
 	    catch ( UnknownHostException e ) {
 		System.err.println("Don't know about host " + server);
-		System.exit(1);
+		System.exit(-1);
 	    }
 	    catch ( IOException e ) {
 		System.err.println("Couldn't get I/O for the connection to " + server);
-		//System.exit(1);
+		System.exit(-1);
 		
 	    }
 	    catch( ClassNotFoundException e ) {
