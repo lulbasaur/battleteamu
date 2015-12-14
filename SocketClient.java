@@ -13,7 +13,7 @@ class SocketClient{
 	//String server = "83.253.0.226";
 	String server = "130.238.251.55";
 	//String server =  "localhost";
-	int port = 2044;
+	int port = 2045;
 
 	SocketClientDriver SCD = new SocketClientDriver(server, port);
 
