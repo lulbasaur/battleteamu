@@ -11,7 +11,8 @@ class SocketClient{
 	ObjectInputStream inFromServer;
 	ObjectOutputStream outToServer;
 	//String server = "83.253.0.226";
-	String server =  "localhost";
+	String server = "130.238.251.55";
+	//String server =  "localhost";
 	int port = 2044;
 
 	SocketClientDriver SCD = new SocketClientDriver(server, port);
